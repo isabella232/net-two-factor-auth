@@ -58,7 +58,7 @@ public class OTPController : ApiController
 ```
 
 ## Generating a random code
-In this scenario, since it doesnt really matter that it's totaly random and I dont care about threads, I am just going to use a static Random (if you are interested in using a safer thread safe random in .net, there many examples and one is [here](http://csharpindepth.com/Articles/Chapter12/Random.aspx))
+In this scenario, since it doesn’t really matter that it's totally random and I don’t care about threads, I am just going to use a static Random (if you are interested in using a safer thread safe random in .net, there many examples and one is [here](http://csharpindepth.com/Articles/Chapter12/Random.aspx))
 
 In **OTPController** add below declaration in the top of you class:
  
@@ -71,7 +71,7 @@ In the **RequestOTP** method we now need to do the following:
 1. seed a code
 2. create new OPTCode object
 3. Add the OTP code to the OTPCodes list 
-4. Send an sms to the number submitted
+4. Send an SMS to the number submitted
 
 ```csharp
 public async Task<HttpResponseMessage> RequestOTP(string phoneNumber)
@@ -80,10 +80,10 @@ public async Task<HttpResponseMessage> RequestOTP(string phoneNumber)
     string code = value.ToString("0000");
     OTPCodes.Add(new OTPCode {PhoneNumber = phoneNumber, Code = code});//2 and 3
     
-	//4 send an sms with the code
+	//4 send an SMS with the code
     try
     {
-        // sms client will throw an error if something goes wrong 
+        // SMS client will throw an error if something goes wrong 
 		var message = string.Format("Your code:{0} for verifying your number with me", code);
 		var number = phoneNumber.Trim();
 		Client smsClient = new Client("key", "secret");
@@ -92,7 +92,7 @@ public async Task<HttpResponseMessage> RequestOTP(string phoneNumber)
     }
     catch (Exception ex)
     {
-        // handle error here, see https://www.sinch.com/docs/rest-apis/api-documentation/#messagingapi for possible errros
+        // handle error here, see https://www.sinch.com/docs/rest-apis/api-documentation/#messagingapi for possible errors
         return new HttpResponseMessage(HttpStatusCode.InternalServerError);
     }
 }
@@ -100,14 +100,14 @@ public async Task<HttpResponseMessage> RequestOTP(string phoneNumber)
 
 In a production application you would most likely use Sinch to verify the format of a number before sending.
 
-Also, one thing yuu might want to add in a production app is to wait to return until Sinch knows the message has been deliverd to the operator by using:
+Also, one thing you might want to add in a production app is to wait to return until Sinch knows the message has been delivered to the operator by using:
 
 ```csharp
 smsClient.CheckStatus(messageid);
 ```
 
 ## Verifying codes
-To verify the code, its as simple as when the the user enters the code in the client app you submit phonenumber and code and see if that entry exists in the **OTPCodes**:
+To verify the code, its as simple as when the user enters the code in the client app you submit phone number and code and see if that entry exists in the **OTPCodes**:
 
 ```csharp
 public HttpResponseMessage VerifyOTP(string phoneNumber, string code)
@@ -124,7 +124,7 @@ public HttpResponseMessage VerifyOTP(string phoneNumber, string code)
 
 ```
 
-## Testig it out with Postman 
+## Testing it out with Postman 
 I like to use postman for chrome to test out my restapis you can get it [here](https://www.google.se/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0CCAQFjAA&url=https%3A%2F%2Fchrome.google.com%2Fwebstore%2Fdetail%2Fpostman-rest-client%2Ffdmmgilgnpjigdojojpjoooidkmcomcm%3Fhl%3Den&ei=1nbCVPyzBoXuyQOG-4K4DA&usg=AFQjCNHaecLwAKk91gpdCY_y1x_ViIrHwQ&bvm=bv.84349003,d.ZWU). 
 
 Hit F5 to start the app locally and make a note of the port. In my case it was 2945. Then head over to http://localhost:yourport/Help and you should see how to call our new API. 
@@ -138,3 +138,4 @@ And to verify code
 ## Next step
 In the next step of this tutorial, we will going how to use this in an native phone app or website. 
  
+
