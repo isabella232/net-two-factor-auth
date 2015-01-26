@@ -21,13 +21,14 @@ public class OTPController : ApiController
     {
         int value = rng.Next(100,9999); //I want to avoid all zeros 
         string code = value.ToString("0000");
-        OTPCodes.Add(new OTPCode {PhoneNumber = phoneNumber, Code = code});
+        var number = phoneNumber.Trim();
+        OTPCodes.Add(new OTPCode { PhoneNumber = number, Code = code });
         
         try
         {
             // sms client will throw an error if something goes wrong 
             var message = string.Format("Your code:{0} for verifying your number with me", code);
-            var number = phoneNumber.Trim();
+
             Client smsClient = new Client("yourkey", "yoursecret");
             await smsClient.SendSMS(number,message);
             return new HttpResponseMessage(HttpStatusCode.OK);
@@ -42,7 +43,7 @@ public class OTPController : ApiController
 
 public HttpResponseMessage VerifyOTP(string phoneNumber, string code)
 {
-    if (OTPCodes.Any(otp => otp.PhoneNumber == phoneNumber && otp.Code == code))
+    if (OTPCodes.Any(otp => otp.PhoneNumber == phoneNumber.Trim() && otp.Code == code))
     {
         return new HttpResponseMessage(HttpStatusCode.OK);
     }
