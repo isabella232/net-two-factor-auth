@@ -129,8 +129,9 @@ I like to use postman for chrome to test out my restapis you can get it [here](h
 
 Hit F5 to start the app locally and make a note of the port. In my case it was 2945. Then head over to http://localhost:yourport/Help and you should see how to call our new API. 
 
-In postman generate and SMS
+In Postman, generate an SMS
 ![](Images/postman_generate.png)
+
 And to verify code
 ![](Images/postman_verify.png)
 
