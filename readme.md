@@ -13,9 +13,6 @@ The full sample code can be downloaded [here](https://github.com/sinch/net-two-f
 
 Optional, a free [azure ](http://azure.com) account if you want to host it there. 
 
-## Application Flow
-insert websequence diagram when they are up again 
-
 ## Create a Project
 Create a new WebApi project with no user authentication and if you have an azure account, make sure the host in could box is checked.
 
