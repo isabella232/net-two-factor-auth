@@ -1,0 +1,18 @@
+//
+//  ValidationHelper.h
+//  NumberValidator
+//
+//  Created by christian jensen on 1/27/15.
+//  Copyright (c) 2015 christian jensen. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "EnterPhoneNumberViewController.h"
+
+@interface ValidationHelper : NSObject
+@property NSURLSession* sessionManager;
++(ValidationHelper *)sharedValidationHelper;
+-(void)startValidation;
+
+
+@end

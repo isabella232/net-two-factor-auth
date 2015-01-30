@@ -42,6 +42,7 @@ Create a new Empty WebAPI controller called **OTP** and add the below code
 public class OTPController : ApiController
 {
     private static List<OTPCode> OTPCodes = new List<OTPCode>();
+    [HttpGet]
     public async Task<HttpResponseMessage> RequestOTP(string phoneNumber)
     {
         // this method will issue new OTP codes 
@@ -71,6 +72,7 @@ In the **RequestOTP** method we now need to do the following:
 4. Send an SMS to the number submitted
 
 ```csharp
+[HttpGet]
 public async Task<HttpResponseMessage> RequestOTP(string phoneNumber)
 {
     int value = rng.Next(100,9999); //1
@@ -107,6 +109,7 @@ smsClient.CheckStatus(messageid);
 To verify the code, its as simple as when the user enters the code in the client app you submit phone number and code and see if that entry exists in the **OTPCodes**:
 
 ```csharp
+[HttpGet]
 public HttpResponseMessage VerifyOTP(string phoneNumber, string code)
 {
     if (OTPCodes.Any(otp => otp.PhoneNumber == phoneNumber && otp.Code == code))

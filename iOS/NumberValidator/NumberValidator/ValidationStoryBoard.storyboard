@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="uPU-Ky-GxK">
+            <objects>
+                <navigationController storyboardIdentifier="start" id="7M7-Vi-gfV" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EHX-4Y-z3O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Rf6-wh-5H9" kind="relationship" relationship="rootViewController" id="TxB-Ux-3id"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XJ8-CT-Pc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-849" y="239"/>
+        </scene>
+        <!--Validate your phone-->
+        <scene sceneID="yAt-6C-EtR">
+            <objects>
+                <viewController storyboardIdentifier="EnterPhoneNumberViewController" id="Rf6-wh-5H9" customClass="EnterPhoneNumberViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oxc-cG-koe"/>
+                        <viewControllerLayoutGuide type="bottom" id="135-3D-irk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pdo-fW-bjs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cv1-tO-Qmd">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="next:" destination="Rf6-wh-5H9" eventType="touchUpInside" id="Rsc-5K-X3x"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter phone number" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="P7m-xx-ZJg">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad"/>
+                            </textField>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="CNI-SH-WCy">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucP-yD-ptL">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.75294125079999996" green="0.015686275440000001" blue="0.070588238540000001" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="CNI-SH-WCy" secondAttribute="centerX" id="4i9-Yh-ybr"/>
+                            <constraint firstItem="P7m-xx-ZJg" firstAttribute="leading" secondItem="pdo-fW-bjs" secondAttribute="leadingMargin" id="8EB-B8-YEt"/>
+                            <constraint firstItem="cv1-tO-Qmd" firstAttribute="leading" secondItem="pdo-fW-bjs" secondAttribute="leadingMargin" id="J7b-nF-2kd"/>
+                            <constraint firstItem="ucP-yD-ptL" firstAttribute="top" secondItem="cv1-tO-Qmd" secondAttribute="bottom" constant="8" symbolic="YES" id="JP9-GJ-Qcd"/>
+                            <constraint firstItem="ucP-yD-ptL" firstAttribute="trailing" secondItem="cv1-tO-Qmd" secondAttribute="trailing" id="L1q-Ky-TBP"/>
+                            <constraint firstItem="ucP-yD-ptL" firstAttribute="leading" secondItem="cv1-tO-Qmd" secondAttribute="leading" id="T8i-wX-wZC"/>
+                            <constraint firstItem="cv1-tO-Qmd" firstAttribute="trailing" secondItem="pdo-fW-bjs" secondAttribute="trailingMargin" id="Uow-us-D0v"/>
+                            <constraint firstItem="cv1-tO-Qmd" firstAttribute="top" secondItem="P7m-xx-ZJg" secondAttribute="bottom" constant="8" id="Y4j-Fv-1KB"/>
+                            <constraint firstAttribute="centerY" secondItem="CNI-SH-WCy" secondAttribute="centerY" id="dTm-T2-kLa"/>
+                            <constraint firstItem="P7m-xx-ZJg" firstAttribute="top" secondItem="oxc-cG-koe" secondAttribute="bottom" constant="8" id="iLC-cy-1bo"/>
+                            <constraint firstItem="P7m-xx-ZJg" firstAttribute="trailing" secondItem="pdo-fW-bjs" secondAttribute="trailingMargin" id="iY2-HX-z19"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="cv1-tO-Qmd"/>
+                                <exclude reference="P7m-xx-ZJg"/>
+                                <exclude reference="CNI-SH-WCy"/>
+                                <exclude reference="ucP-yD-ptL"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="8EB-B8-YEt"/>
+                                <exclude reference="iLC-cy-1bo"/>
+                                <exclude reference="iY2-HX-z19"/>
+                                <exclude reference="JP9-GJ-Qcd"/>
+                                <exclude reference="L1q-Ky-TBP"/>
+                                <exclude reference="T8i-wX-wZC"/>
+                                <exclude reference="4i9-Yh-ybr"/>
+                                <exclude reference="dTm-T2-kLa"/>
+                                <exclude reference="J7b-nF-2kd"/>
+                                <exclude reference="Uow-us-D0v"/>
+                                <exclude reference="Y4j-Fv-1KB"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="cv1-tO-Qmd"/>
+                                <include reference="P7m-xx-ZJg"/>
+                                <include reference="CNI-SH-WCy"/>
+                                <include reference="ucP-yD-ptL"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="8EB-B8-YEt"/>
+                                <include reference="iLC-cy-1bo"/>
+                                <include reference="iY2-HX-z19"/>
+                                <include reference="JP9-GJ-Qcd"/>
+                                <include reference="L1q-Ky-TBP"/>
+                                <include reference="T8i-wX-wZC"/>
+                                <include reference="4i9-Yh-ybr"/>
+                                <include reference="dTm-T2-kLa"/>
+                                <include reference="J7b-nF-2kd"/>
+                                <include reference="Uow-us-D0v"/>
+                                <include reference="Y4j-Fv-1KB"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Validate your phone" id="b3S-pj-qRn">
+                        <barButtonItem key="backBarButtonItem" title="Change number" id="xn4-z8-VRm"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="l3P-l4-Uvm">
+                            <connections>
+                                <action selector="cancel:" destination="Rf6-wh-5H9" id="9jA-yG-Gnq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="2Yy-Qc-bIW">
+                            <connections>
+                                <action selector="next:" destination="Rf6-wh-5H9" id="deJ-Gy-t2m"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="errorLabel" destination="ucP-yD-ptL" id="0ZW-pp-ieR"/>
+                        <outlet property="phoneNumber" destination="P7m-xx-ZJg" id="6ov-B4-8jp"/>
+                        <outlet property="spinner" destination="CNI-SH-WCy" id="GwO-ox-3zA"/>
+                        <segue destination="yq3-gU-x7k" kind="show" identifier="enterCode" id="P2d-4K-Sy1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8dL-jo-ETz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-145.5" y="238.5"/>
+        </scene>
+        <!--Enter Code-->
+        <scene sceneID="l56-rB-USR">
+            <objects>
+                <viewController title="Enter Code" id="yq3-gU-x7k" customClass="EnterCodeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="By3-26-Bgy"/>
+                        <viewControllerLayoutGuide type="bottom" id="iNy-QZ-EGv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hfp-Gn-dGJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ITo-HT-pi2">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the code you recieve via sms" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJs-Fr-bmz">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0m-Nw-JEr">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="139" width="368" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="done:" destination="yq3-gU-x7k" eventType="touchUpInside" id="PeL-kq-sej"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRE-dL-2ig">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.75294125079999996" green="0.015686275440000001" blue="0.070588238540000001" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="177" width="368" height="21"/>
+                                </variation>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="VsY-rp-aaC">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="190" y="390" width="37" height="37"/>
+                                </variation>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ITo-HT-pi2" firstAttribute="trailing" secondItem="hfp-Gn-dGJ" secondAttribute="trailingMargin" id="JH0-CB-xAg"/>
+                            <constraint firstItem="AJs-Fr-bmz" firstAttribute="top" secondItem="By3-26-Bgy" secondAttribute="bottom" constant="8" id="KfD-Ew-BAQ"/>
+                            <constraint firstItem="ITo-HT-pi2" firstAttribute="top" secondItem="AJs-Fr-bmz" secondAttribute="bottom" constant="8" id="YVZ-Bc-9RS"/>
+                            <constraint firstItem="AJs-Fr-bmz" firstAttribute="leading" secondItem="hfp-Gn-dGJ" secondAttribute="leadingMargin" id="YXH-n9-DyD"/>
+                            <constraint firstItem="AJs-Fr-bmz" firstAttribute="trailing" secondItem="hfp-Gn-dGJ" secondAttribute="trailingMargin" id="jwX-eD-lKd"/>
+                            <constraint firstItem="ITo-HT-pi2" firstAttribute="leading" secondItem="hfp-Gn-dGJ" secondAttribute="leadingMargin" id="tAJ-yT-Wxs"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ITo-HT-pi2"/>
+                                <exclude reference="AJs-Fr-bmz"/>
+                                <exclude reference="u0m-Nw-JEr"/>
+                                <exclude reference="yRE-dL-2ig"/>
+                                <exclude reference="VsY-rp-aaC"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="KfD-Ew-BAQ"/>
+                                <exclude reference="YXH-n9-DyD"/>
+                                <exclude reference="jwX-eD-lKd"/>
+                                <exclude reference="JH0-CB-xAg"/>
+                                <exclude reference="YVZ-Bc-9RS"/>
+                                <exclude reference="tAJ-yT-Wxs"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ITo-HT-pi2"/>
+                                <include reference="AJs-Fr-bmz"/>
+                                <include reference="u0m-Nw-JEr"/>
+                                <include reference="yRE-dL-2ig"/>
+                                <include reference="VsY-rp-aaC"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="KfD-Ew-BAQ"/>
+                                <include reference="YXH-n9-DyD"/>
+                                <include reference="jwX-eD-lKd"/>
+                                <include reference="JH0-CB-xAg"/>
+                                <include reference="YVZ-Bc-9RS"/>
+                                <include reference="tAJ-yT-Wxs"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Enter code" id="cTI-Am-xvU">
+                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="is0-as-6F8">
+                            <connections>
+                                <action selector="done:" destination="yq3-gU-x7k" id="JmG-Ix-ORz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="errorLabel" destination="yRE-dL-2ig" id="Qgg-OZ-p2x"/>
+                        <outlet property="spinner" destination="VsY-rp-aaC" id="oxN-E8-KIz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UmU-5V-FKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="561" y="234.75"/>
+        </scene>
+    </scenes>
+</document>
