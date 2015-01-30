@@ -19,9 +19,9 @@ Create a new WebApi project with no user authentication and if you have an azure
 ## Install Sinch helper library 
 When the project is created we want to add the `Sinch.SMS` nuget package we need to send out the OTP (One time password) codes with. Open up Package Manager Console 
 
-'''csharp
+```csharp
 pm>install-package Sinch.SMS
-'''  
+```  
 
 ## Request One time password
 When creating a one time password, we will need somewhere to store them. Create a new class in the Models directory and call it **OTPCode**:
