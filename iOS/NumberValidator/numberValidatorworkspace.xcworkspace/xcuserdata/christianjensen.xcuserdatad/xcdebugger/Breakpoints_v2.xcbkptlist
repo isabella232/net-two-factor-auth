@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NumberValidatorSampleApp/NumberValidatorSampleApp/ViewController.m"
-            timestampString = "444149529.61737"
+            timestampString = "444318510.13406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "-viewDidAppear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,7 +42,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../iOs/NumberValidator/HttpClient.m"
-            timestampString = "444186920.422295"
+            timestampString = "444317654.173374"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "-requestCode:completion:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../iOs/NumberValidator/HttpClient.m"
+            timestampString = "444317654.173374"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -57,28 +73,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../iOs/NumberValidator/HttpClient.m"
-            timestampString = "444186921.718301"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "-requestCode:completion:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "NumberValidator/Controllers/EnterPhoneNumberViewController.m"
-            timestampString = "444187157.589921"
+            timestampString = "444318741.541583"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "-next:"
             landmarkType = "5">
             <Locations>
@@ -89,11 +89,11 @@
                   symbolName = "__39-[EnterPhoneNumberViewController next:]_block_invoke"
                   moduleName = "NumberValidator"
                   urlString = "file:///Users/christianjensen/Documents/GitHub/net-two-factor-auth/iOS/NumberValidator/NumberValidator/Controllers/EnterPhoneNumberViewController.m"
-                  timestampString = "444187267.352037"
+                  timestampString = "444318742.022802"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
                   offsetFromSymbolStart = "217">
                </Location>
                <Location
@@ -103,11 +103,11 @@
                   symbolName = "__39-[EnterPhoneNumberViewController next:]_block_invoke"
                   moduleName = "NumberValidator"
                   urlString = "file:///Users/christianjensen/Documents/GitHub/net-two-factor-auth/iOS/NumberValidator/NumberValidator/Controllers/EnterPhoneNumberViewController.m"
-                  timestampString = "444187267.352136"
+                  timestampString = "444318742.022895"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
                   offsetFromSymbolStart = "274">
                </Location>
             </Locations>
@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NumberValidator/Controllers/EnterPhoneNumberViewController.m"
-            timestampString = "444187155.224567"
+            timestampString = "444318741.541583"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "-next:"
             landmarkType = "5">
          </BreakpointContent>
@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../iOs/NumberValidator/HttpClient.m"
-            timestampString = "444187204.414388"
+            timestampString = "444317654.173374"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "-requestCode:completion:"
             landmarkType = "5">
             <Locations>
@@ -151,11 +151,11 @@
                   symbolName = "-[HttpClient requestCode:completion:]"
                   moduleName = "NumberValidator"
                   urlString = "file:///Users/christianjensen/Documents/GitHub/net-two-factor-auth/iOS/NumberValidator/HttpClient.m"
-                  timestampString = "444187267.352471"
+                  timestampString = "444318742.023096"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
                   offsetFromSymbolStart = "195">
                </Location>
                <Location
@@ -165,14 +165,62 @@
                   symbolName = "__37-[HttpClient requestCode:completion:]_block_invoke"
                   moduleName = "NumberValidator"
                   urlString = "file:///Users/christianjensen/Documents/GitHub/net-two-factor-auth/iOS/NumberValidator/HttpClient.m"
-                  timestampString = "444187267.352675"
+                  timestampString = "444318742.023193"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
                   offsetFromSymbolStart = "104">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NumberValidator/Controllers/EnterPhoneNumberViewController.m"
+            timestampString = "444318741.541583"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-next:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NumberValidatorSampleApp/NumberValidatorSampleApp/ViewController.m"
+            timestampString = "444318512.109631"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "-verificationComplete:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NumberValidatorSampleApp/NumberValidatorSampleApp/ViewController.m"
+            timestampString = "444318782.820171"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

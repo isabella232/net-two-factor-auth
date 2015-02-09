@@ -21,10 +21,12 @@ __strong static HttpClient* currentHttpClientInstance = nil;
     });
     return currentHttpClientInstance;
 }
+
+
 -(void)requestCode:(NSString *)phoneNumber completion:(void (^)(NSError *))completion
 {
     sessionManager = [NSURLSession sharedSession];
-    NSString* url = [@"http://twofactorauth.azurewebsites.net/api/otp?phoneNumber=" stringByAppendingString:phoneNumber];
+    NSString* url = [@"http://yourserver/api/otp?phoneNumber=" stringByAppendingString:phoneNumber];
     [[sessionManager downloadTaskWithURL:[NSURL URLWithString:url] completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
         
         if (completion)
@@ -37,7 +39,7 @@ __strong static HttpClient* currentHttpClientInstance = nil;
 
 -(void)validateCode:(NSString *)phoneNumber :(NSString *)code completion:(void (^)(NSError *))completion{
     sessionManager = [NSURLSession sharedSession];
-    NSString* url = [NSString stringWithFormat:@"http://twofactorauth.azurewebsites.net/api/otp?phoneNumber=%@&code=%@", phoneNumber, code];
+    NSString* url = [NSString stringWithFormat:@"http://yourserver/api/otp?phoneNumber=%@&code=%@", phoneNumber, code];
     [[sessionManager downloadTaskWithURL:[NSURL URLWithString:url] completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
         if (completion)
             completion(error);

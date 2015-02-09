@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "EnterPhoneNumberViewController.h"
+
 
 @interface ValidationHelper : NSObject
+
 @property NSURLSession* sessionManager;
 +(ValidationHelper *)sharedValidationHelper;
 -(void)startValidation;

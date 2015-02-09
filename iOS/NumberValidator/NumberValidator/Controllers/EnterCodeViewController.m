@@ -7,13 +7,14 @@
 //
 
 #import "EnterCodeViewController.h"
-
+#import "NSNotificationEvents.h"
+#import "HttpClient.h"
 @interface EnterCodeViewController ()
 
 @end
 
 @implementation EnterCodeViewController
-@synthesize phoneNumber;
+@synthesize phoneNumber,code, spinner, errorLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,6 +26,21 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)done:(id)sender {
+    [spinner startAnimating];
+    errorLabel.text = @"";
+    [[HttpClient sharedHttpClient] validateCode:phoneNumber :code.text completion:^(NSError *error) {
+        [self.spinner stopAnimating];
+        if (!error)
+        {
+            [[NSNotificationCenter defaultCenter] postNotificationName:VALIDATION_COMPLETE object:self.phoneNumber];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        else
+        {
+            errorLabel.text = @"Invalid code";
+        }
+        
+    }];
 }
 
 

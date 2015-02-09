@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <NumberValidator/NumberValidator.h>
 
 @interface ViewController ()
 
@@ -14,19 +15,31 @@
 
 @implementation ViewController
 
+-(void)verificationComplete:(NSNotification*)notification
+{
+    NSLog(@"number validated %@", notification.object);
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(verificationComplete:) name:VALIDATION_COMPLETE object:nil];
+}
 
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:VALIDATION_COMPLETE object:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
-        [[ValidationHelper sharedValidationHelper] startValidation];
+ 
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)validate:(id)sender {
+    [[ValidationHelper sharedValidationHelper] startValidation];
+}
+
 
 @end

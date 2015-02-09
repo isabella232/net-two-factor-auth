@@ -245,6 +245,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="code" destination="ITo-HT-pi2" id="DmC-il-ZFb"/>
                         <outlet property="errorLabel" destination="yRE-dL-2ig" id="Qgg-OZ-p2x"/>
                         <outlet property="spinner" destination="VsY-rp-aaC" id="oxN-E8-KIz"/>
                     </connections>

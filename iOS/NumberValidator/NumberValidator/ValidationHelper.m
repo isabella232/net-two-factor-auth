@@ -7,6 +7,8 @@
 //
 
 #import "ValidationHelper.h"
+#import "EnterPhoneNumberViewController.h"
+
 
 @implementation ValidationHelper
 @synthesize sessionManager;
