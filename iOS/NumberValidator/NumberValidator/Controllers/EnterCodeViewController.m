@@ -32,7 +32,7 @@
         [self.spinner stopAnimating];
         if (!error)
         {
-            [[NSNotificationCenter defaultCenter] postNotificationName:VALIDATION_COMPLETE object:self.phoneNumber];
+            [[NSNotificationCenter defaultCenter] postNotificationName:NumberValidationDidCancelNotification object:self userInfo:@{PhoneNumberKey: self.phoneNumber}];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
         else

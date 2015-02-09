@@ -9,7 +9,9 @@
 #ifndef NumberValidator_NSNotificationEvents_h
 #define NumberValidator_NSNotificationEvents_h
 
-#define VALIDATION_COMPLETE @"VALIDATION_COMPLETE"
-#define  VALIDATION_CANCELED @"VALIDATION_CANCELED"
+UIKIT_EXTERN NSString* const NumberValidationDidCompleteNotification;
+UIKIT_EXTERN NSString* const NumberValidationDidCancelNotification;
+UIKIT_EXTERN NSString* const PhoneNumberKey;
+
 
 #endif

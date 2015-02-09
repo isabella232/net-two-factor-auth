@@ -10,8 +10,9 @@
 
 
 @interface ValidationHelper : NSObject
-
-@property NSURLSession* sessionManager;
+{
+    NSURLSession* sessionManager;
+}
 +(ValidationHelper *)sharedValidationHelper;
 -(void)startValidation;
 

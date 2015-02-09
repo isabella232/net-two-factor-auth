@@ -175,8 +175,9 @@ Since we care if the validation is successful, we need a way to tell the consume
 Since this is a process that might take a little while and there is UI involved I felt a NSNoticication center approach is best suited (you can read more about [NSNotificationCenter](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSNotificationCenter_Class/)), So lets define  two strings with events name in a file called **NSNotificationEvents.h**
 
 ```objectivec
-#define VALIDATION_COMPLETE @"VALIDATION_COMPLETE"
-#define  VALIDATION_CANCELED @"VALIDATION_CANCELED"
+UIKIT_EXTERN NSString* const VALIDATION_COMPLETE;
+UIKIT_EXTERN NSString* const VALIDATION_CANCELED;
+UIKIT_EXTERN NSString* const PhoneNumberKey;
 ```
 Open up EnterCodeViewController.m and add an import to NSNotificationEvents.h 
 next find `done:` method and modify it so it sends notification on completion.
@@ -191,7 +192,10 @@ next find `done:` method and modify it so it sends notification on completion.
         [spinner stopAnimating]
         if (!error)
         {
-			[[NSNotificationCenter defaultCenter] postNotificationName:VALIDATION_COMPLETE object:self.phoneNumber]; //we want to tell the listener that validation is complete for the phonenumber (sender)
+			[[NSNotificationCenter defaultCenter] 
+			    postNotificationName:NumberValidationDidCompleteNotification 
+			    object:self 
+			    userInfo:@{PhoneNumberKey: self.phoneNumber}]; 
 			[self dismissViewControllerAnimated:YES completion:nil];
         }
         else
@@ -207,8 +211,11 @@ And add the cancel event to the **EnterPhoneNumber.m**  find cancel action and c
 
 ```
 - (IBAction)cancel:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:VALIDATION_CANCELED object:nil];
-    [[self parentViewController] dismissViewControllerAnimated:YES completion:^{
+    [[NSNotificationCenter defaultCenter] 
+        postNotificationName:NumberValidationDidCancelNotification 
+        object:nil];
+    [[self parentViewController] 
+    dismissViewControllerAnimated:YES completion:^{
     }];
 }
 ```
@@ -243,7 +250,11 @@ Thats all that is needed to validate the phone. But we also want to listen if on
 ```objectivec
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(verificationComplete:) name:VALIDATION_COMPLETE object:nil];
+    [[NSNotificationCenter defaultCenter] 
+        addObserver:self 
+        selector:@selector(verificationComplete:)
+        name:NumberValidationDidCompleteNotification 
+        object:nil];
 }
 ```
 Notice that we have a warning now, add the method to verificationComplete
@@ -258,14 +269,17 @@ Last in dealoc, unregister for the notifications
 ```objectiveC
 -(void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:VALIDATION_COMPLETE object:nil];
+    [[NSNotificationCenter defaultCenter] 
+        removeObserver:self 
+        name:NumberValidationDidCompleteNotification 
+        object:nil];
 }
 ```
 
 Done!
 
 ## Conclusion
-In this tutorial we learned both about Cocoa Frameworks to build our own reusable library, and I must say "Finally" and easy way to make your stuff modularized in iOS. We also learned how to consume our service we created in part 1 of this series. In part 3 we will build a small website and do two factor authentication.
+In this tutorial we learned both about how to build a Cocoa Frameworks reusable library, and I must say; "Finally" and easy way to make your stuff modularized in iOS. We also learned how to consume our service we created in part 1 of this series. In part 3 we will build a small website and do two factor authentication.
 
 
 

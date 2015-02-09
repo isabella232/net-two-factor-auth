@@ -57,7 +57,7 @@
 }
 
 - (IBAction)cancel:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:VALIDATION_CANCELED object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NumberValidationDidCompleteNotification object:nil];
     [[self parentViewController] dismissViewControllerAnimated:YES completion:^{
     }];
 }
