@@ -130,6 +130,7 @@ This is all the UI done for this part. Next we need create a mechanism so its ea
 ## Validation Helper
 This helper class is going to help us start a new number validation and also notify the consumer when we have a canceled or successful notification. For this helper I am going to user the static design pattern.
 In **ValidationHelper.m** add the following code
+
 ```objectivec
 __strong static ValidationHelper* currentValidationHelperInstance = nil;
 +(ValidationHelper *)sharedValidationHelper
@@ -143,8 +144,8 @@ __strong static ValidationHelper* currentValidationHelperInstance = nil;
     });
     return currentValidationHelperInstance;
 }
-
 ```
+
 and in ValidationHelper.h add the method to the interface, also add a startValidation method
 
 ```objectivec
@@ -179,6 +180,15 @@ UIKIT_EXTERN NSString* const VALIDATION_COMPLETE;
 UIKIT_EXTERN NSString* const VALIDATION_CANCELED;
 UIKIT_EXTERN NSString* const PhoneNumberKey;
 ```
+
+In NumberValidation.m above the implementation line add:
+
+```objectivec
+NSString* const NumberValidationDidCompleteNotification = @"NumberValidationDidCompleteNotification";
+NSString* const NumberValidationDidCancelNotification= @"NumberValidationDidCancelNotification";
+NSString* const PhoneNumberKey= @"PhoneNumberKey";
+```
+
 Open up EnterCodeViewController.m and add an import to NSNotificationEvents.h 
 next find `done:` method and modify it so it sends notification on completion.
 
@@ -224,11 +234,11 @@ And add the cancel event to the **EnterPhoneNumber.m**  find cancel action and c
 In a framework app you need to decide which headers that should be visible, select your **NumberValidator** project, and go in to *build phases*. Drag the the header files so they look like this.
 ![Images/part2/publicheaders.png]()
 You also want to open up the NumberValidator.h and add the following imports to make them visible with only one import in the consumer. 
+
 ```objectivec
 #import "ValidationHelper.h"
 #import "NSNotificationEvents.h"
 ```
-
 
 ## Creating a test client
 Selet the **NumberValidatorSampleApp** and go to *build phases*, drag the Add the NumberValidator.framework to Link Binary With Libraries. Open the story **Main.Storyboard** and add a button and connect it with an action called validate.
@@ -261,7 +271,8 @@ Notice that we have a warning now, add the method to verificationComplete
 ```
 -(void)verificationComplete:(NSNotification*)notification
 {
-    NSLog(@"number validated %@", notification.object);
+    NSLog(@"number validated %@",[[notification userInfo]
+                                  objectForKey:PhoneNumberKey]);
 }
 ```
 Last in dealoc, unregister for the notifications

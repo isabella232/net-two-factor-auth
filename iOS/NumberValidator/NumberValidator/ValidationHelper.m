@@ -9,6 +9,9 @@
 #import "ValidationHelper.h"
 #import "EnterPhoneNumberViewController.h"
 
+NSString* const NumberValidationDidCompleteNotification = @"NumberValidationDidCompleteNotification";
+NSString* const NumberValidationDidCancelNotification= @"NumberValidationDidCancelNotification";
+NSString* const PhoneNumberKey= @"PhoneNumberKey";
 
 @implementation ValidationHelper
 

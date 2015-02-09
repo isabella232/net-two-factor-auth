@@ -17,16 +17,17 @@
 
 -(void)verificationComplete:(NSNotification*)notification
 {
-    NSLog(@"number validated %@", notification.object);
+    NSLog(@"number validated %@",[[notification userInfo]
+                                  objectForKey:PhoneNumberKey]);
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(verificationComplete:) name:VALIDATION_COMPLETE object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(verificationComplete:) name:NumberValidationDidCompleteNotification object:nil];
 }
 
 -(void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:VALIDATION_COMPLETE object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NumberValidationDidCompleteNotification object:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated
