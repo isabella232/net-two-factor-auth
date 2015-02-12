@@ -7,7 +7,9 @@
 //
 
 #import "EnterPhoneNumberViewController.h"
-
+#import "NSNotificationEvents.h"
+#import "EnterCodeViewController.h"
+#import "HttpClient.h"
 @interface EnterPhoneNumberViewController ()
 
 @end
@@ -45,22 +47,18 @@
             }
             else
             {
-                errorLabel.text = @"Somethings went wrong";
+                errorLabel.text = @"Something went wrong";
                 //show some error message
             }
         });
         
         
     }];
-    
-    
-    
 }
 
 - (IBAction)cancel:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:NumberValidationDidCompleteNotification object:nil];
     [[self parentViewController] dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"dismiss");
-        
     }];
 }
 

@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EnterCodeViewController.h"
-#import "HttpClient.h"
+
 
 @interface EnterPhoneNumberViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;

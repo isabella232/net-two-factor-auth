@@ -7,9 +7,14 @@
 //
 
 #import "ValidationHelper.h"
+#import "EnterPhoneNumberViewController.h"
+
+NSString* const NumberValidationDidCompleteNotification = @"NumberValidationDidCompleteNotification";
+NSString* const NumberValidationDidCancelNotification= @"NumberValidationDidCancelNotification";
+NSString* const PhoneNumberKey= @"PhoneNumberKey";
 
 @implementation ValidationHelper
-@synthesize sessionManager;
+
 
 __strong static ValidationHelper* currentValidationHelperInstance = nil;
 +(ValidationHelper *)sharedValidationHelper
@@ -18,12 +23,17 @@ __strong static ValidationHelper* currentValidationHelperInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         currentValidationHelperInstance = [[self alloc] init];
-        currentValidationHelperInstance.sessionManager = [NSURLSession sharedSession];
-
+    
     });
     return currentValidationHelperInstance;
 }
 
+-(ValidationHelper*)init
+{
+    self = [super init];
+    sessionManager = [NSURLSession sharedSession];
+    return self;
+}
 
 -(void)startValidation
 {

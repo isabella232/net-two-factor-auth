@@ -12,12 +12,13 @@
 		774C9A0E1A7827C90082D78A /* NumberValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C9A0D1A7827C90082D78A /* NumberValidatorTests.m */; };
 		774C9A1F1A782E680082D78A /* ValidationHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 774C9A1D1A782E680082D78A /* ValidationHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		774C9A201A782E680082D78A /* ValidationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 774C9A1E1A782E680082D78A /* ValidationHelper.m */; };
+		779211571A7BBF4A00F17E09 /* NSNotificationEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 779211561A7BBAEC00F17E09 /* NSNotificationEvents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77D214181A79296C00C37DB4 /* ValidationStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77D214171A79296C00C37DB4 /* ValidationStoryBoard.storyboard */; };
-		77D2141B1A7929B700C37DB4 /* EnterPhoneNumberViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77D214191A7929B700C37DB4 /* EnterPhoneNumberViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77D2141B1A7929B700C37DB4 /* EnterPhoneNumberViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77D214191A7929B700C37DB4 /* EnterPhoneNumberViewController.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		77D2141C1A7929B700C37DB4 /* EnterPhoneNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D2141A1A7929B700C37DB4 /* EnterPhoneNumberViewController.m */; };
-		77D2141F1A792D1000C37DB4 /* EnterCodeViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77D2141D1A792D1000C37DB4 /* EnterCodeViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77D2141F1A792D1000C37DB4 /* EnterCodeViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 77D2141D1A792D1000C37DB4 /* EnterCodeViewController.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		77D214201A792D1000C37DB4 /* EnterCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D2141E1A792D1000C37DB4 /* EnterCodeViewController.m */; };
-		77D214231A79883000C37DB4 /* HttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 77D214211A79883000C37DB4 /* HttpClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77D214231A79883000C37DB4 /* HttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 77D214211A79883000C37DB4 /* HttpClient.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		77D214241A79883000C37DB4 /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D214221A79883000C37DB4 /* HttpClient.m */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		774C9A0D1A7827C90082D78A /* NumberValidatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NumberValidatorTests.m; sourceTree = "<group>"; };
 		774C9A1D1A782E680082D78A /* ValidationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValidationHelper.h; sourceTree = "<group>"; };
 		774C9A1E1A782E680082D78A /* ValidationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidationHelper.m; sourceTree = "<group>"; };
+		779211561A7BBAEC00F17E09 /* NSNotificationEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSNotificationEvents.h; sourceTree = "<group>"; };
 		77D214171A79296C00C37DB4 /* ValidationStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ValidationStoryBoard.storyboard; sourceTree = "<group>"; };
 		77D214191A7929B700C37DB4 /* EnterPhoneNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterPhoneNumberViewController.h; sourceTree = "<group>"; };
 		77D2141A1A7929B700C37DB4 /* EnterPhoneNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterPhoneNumberViewController.m; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				774C9A1D1A782E680082D78A /* ValidationHelper.h */,
 				774C9A1E1A782E680082D78A /* ValidationHelper.m */,
 				77D214171A79296C00C37DB4 /* ValidationStoryBoard.storyboard */,
+				779211561A7BBAEC00F17E09 /* NSNotificationEvents.h */,
 			);
 			path = NumberValidator;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			files = (
 				774C9A011A7827C90082D78A /* NumberValidator.h in Headers */,
 				774C9A1F1A782E680082D78A /* ValidationHelper.h in Headers */,
+				779211571A7BBF4A00F17E09 /* NSNotificationEvents.h in Headers */,
 				77D2141F1A792D1000C37DB4 /* EnterCodeViewController.h in Headers */,
 				77D2141B1A7929B700C37DB4 /* EnterPhoneNumberViewController.h in Headers */,
 				77D214231A79883000C37DB4 /* HttpClient.h in Headers */,
