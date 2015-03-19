@@ -1,5 +1,5 @@
-# Part 3 Number verification and ASP.NET identity and Two factor Auth. 
-In this part of the tutorial series we are going to create an SMS provider for Microsoft Identity that comes shiped with in the .net framework in about 15 minutes.
+# Part 3 - Number Verification, ASP.NET Identity and Two Factor Authentication 
+In this part of the tutorial series, we are going to create an SMS provider for Microsoft Identity that comes shipped with in the .net framework in about 15 minutes.
 
 ## Prerequisites 
 1. Good understanding of C# and REST APIs
@@ -7,14 +7,15 @@ In this part of the tutorial series we are going to create an SMS provider for M
 3. An account with Sinch [http://sinch.com/signup](http://sinch.com/signup)
 
 ## Setup
-1. Create a new a project and name it LoginSample
+1. Create a new a project and name it **LoginSample**
 2. Select MVC project with basic Authentication
+
 ![](Images/part3/greateproject.png)
 
-## Enable SMS for two factor Auth with Sinch
-1. In the package manager console
-`Install-Package Sinch.SMS`
-2. Open **IdentityConfig.cs** file in **App_Start** folder and find the **SMSService** class and add the Sinch implemenation to to it
+## Enable SMS for Two Factor Authentication with Sinch
+1. In the package manager console, enter `Install-Package Sinch.SMS`
+2. Open **IdentityConfig.cs** in the **App_Start** folder and find the **SMSService** class and add the Sinch implementation to it like this:
+
 ```csharp
 public Task SendAsync(IdentityMessage message)
 {
@@ -22,11 +23,14 @@ public Task SendAsync(IdentityMessage message)
     return client.SendSMS(message.Destination, message.Body);
 }
 ```
-replace key and secret with your own info from the [dashboard](http://sinc.com/dashboard)
+
+Remember to replace the **key** and **secret** with your own info from the [dashboard](http://sinch.com/dashboard)
+
 ## Update the profile page to show number
-In a production scenario you would probably ask for phonenumber during registration, but in this case we will just add it to the profile page. 
-1. Open **Views\Manage\Index.cshtml**
-Find the PhoneNumber section and uncomment it
+In a production scenario, you would probably ask for a phone number during the registration process, but in this case we will just add it to the profile page. 
+
+1. Open **Views\Manage\Index.cshtml**, and find the **PhoneNumber** section and uncomment it:
+
 ```html
   <dt>Phone Number:</dt>
     <dd>
@@ -44,7 +48,9 @@ Find the PhoneNumber section and uncomment it
         ]
     </dd>
 ``` 
-2. Also uncomment the two factor auth part
+
+2. Also uncomment the Two Factor Authenticate part:
+
 ```csharp
  @if (Model.TwoFactor)
 {
@@ -69,15 +75,18 @@ else
 ```
 
 #Testing the app
-Hit **F5** and run the app, if you havent already register an account and click on the user name in the top right corner. This will take you to the manage profile page.
+Hit **F5** and run the app. If you haven't already registered an account, click on the user name in the top right corner. This will take you to the manage profile page.
+
 ![](Images/part3/profilepage.png)
-1. Click add phonenumber (remember to enter it in international format i.e **1**5612600684)
-2. Enter the code you recieve in an SMS
-3. Click enable to factor auth, and log off and log in again you should now see the below.
-![](Images/part3/entercode.png)
-4. Click next and and enter the code in the next window.
-![](Images/part3/verifycode.png)
 
-This tutorial showed you how easy it is to enable two factor auth on an ASP.net Identity application using sinch. 
+1. Click add phone number (remember to enter it in international format i.e **1**5612600684)
+2. Enter the code you received in an SMS
+3. Click enable Two Factor Auth, and log off and log in again you should now see it below:
 
+![enter code](Images/part3/entercode.png)
 
+4. Click next and enter the code in the next window.
+
+![verify code](Images/part3/verifycode.png)
+
+This tutorial showed you how easy it is to enable Two Factor Auth on an ASP.net Identity application using Sinch. 

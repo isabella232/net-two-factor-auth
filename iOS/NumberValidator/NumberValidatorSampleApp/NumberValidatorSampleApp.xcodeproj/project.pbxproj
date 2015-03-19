@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		779960331A8D084600D5AF92 /* NumberValidator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779960321A8D084600D5AF92 /* NumberValidator.framework */; };
+		779960341A8D084600D5AF92 /* NumberValidator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 779960321A8D084600D5AF92 /* NumberValidator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		77D213EA1A79016D00C37DB4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D213E91A79016D00C37DB4 /* main.m */; };
 		77D213ED1A79016D00C37DB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D213EC1A79016D00C37DB4 /* AppDelegate.m */; };
 		77D213F01A79016D00C37DB4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D213EF1A79016D00C37DB4 /* ViewController.m */; };
@@ -27,7 +29,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		779960351A8D084600D5AF92 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				779960341A8D084600D5AF92 /* NumberValidator.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		779960321A8D084600D5AF92 /* NumberValidator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = NumberValidator.framework; path = "/Users/christianjensen/Library/Developer/Xcode/DerivedData/numberValidatorworkspace-hbxzujtoaczomefewbrqjhhihgjg/Build/Products/Debug-iphoneos/NumberValidator.framework"; sourceTree = "<absolute>"; };
 		77D213E41A79016D00C37DB4 /* NumberValidatorSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberValidatorSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77D213E81A79016D00C37DB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77D213E91A79016D00C37DB4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -49,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				779960331A8D084600D5AF92 /* NumberValidator.framework in Frameworks */,
 				77D214281A79B67700C37DB4 /* NumberValidator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +84,7 @@
 		77D213DB1A79016D00C37DB4 = {
 			isa = PBXGroup;
 			children = (
+				779960321A8D084600D5AF92 /* NumberValidator.framework */,
 				77D214261A79B67700C37DB4 /* NumberValidator.framework */,
 				77D213E61A79016D00C37DB4 /* NumberValidatorSampleApp */,
 				77D214001A79016D00C37DB4 /* NumberValidatorSampleAppTests */,
@@ -133,6 +152,7 @@
 				77D213E01A79016D00C37DB4 /* Sources */,
 				77D213E11A79016D00C37DB4 /* Frameworks */,
 				77D213E21A79016D00C37DB4 /* Resources */,
+				779960351A8D084600D5AF92 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -351,6 +371,7 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/numberValidatorworkspace-haotkwyaosxpgzbesshnsldiwdch/Build/Products/Debug-iphoneos",
 					"/Users/christianjensen/Documents/GitHub/net-two-factor-auth/iOS/NumberValidator/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/numberValidatorworkspace-hbxzujtoaczomefewbrqjhhihgjg/Build/Products/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = NumberValidatorSampleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -367,6 +388,7 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/numberValidatorworkspace-haotkwyaosxpgzbesshnsldiwdch/Build/Products/Debug-iphoneos",
 					"/Users/christianjensen/Documents/GitHub/net-two-factor-auth/iOS/NumberValidator/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/numberValidatorworkspace-hbxzujtoaczomefewbrqjhhihgjg/Build/Products/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = NumberValidatorSampleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
