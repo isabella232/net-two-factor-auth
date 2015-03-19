@@ -39,7 +39,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)validate:(id)sender {
-    [[ValidationHelper sharedValidationHelper] startValidation];
+    [[ValidationHelper sharedValidationHelper] startValidation:@"3dd3f500-dd52-4498-a913-635f5fd9d45d"];
 }
 
 

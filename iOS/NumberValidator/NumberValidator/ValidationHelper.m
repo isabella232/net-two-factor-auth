@@ -14,7 +14,7 @@ NSString* const NumberValidationDidCancelNotification= @"NumberValidationDidCanc
 NSString* const PhoneNumberKey= @"PhoneNumberKey";
 
 @implementation ValidationHelper
-
+@synthesize applicationKey;
 
 __strong static ValidationHelper* currentValidationHelperInstance = nil;
 +(ValidationHelper *)sharedValidationHelper
@@ -35,13 +35,14 @@ __strong static ValidationHelper* currentValidationHelperInstance = nil;
     return self;
 }
 
--(void)startValidation
+-(void)startValidation:(NSString*)appKey
 {
+    applicationKey = appKey;
     UIWindow* window  = [[[UIApplication sharedApplication] delegate] window];
     NSBundle* bundle = [NSBundle bundleWithIdentifier:@"com.sinch.NumberValidator"];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ValidationStoryBoard" bundle:bundle];
     UINavigationController *vc = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"start"];
-    
+
     [[window rootViewController] presentViewController:vc animated:true completion:^{
         NSLog(@"presented");
     }];

@@ -1,0 +1,13 @@
+iOS watch kit tutorial with Sinch calling
+
+In this tutorial we are going to take a look at the WatchKit from apple. 
+
+## Prerequisites
+1. Versed in iOS development
+2. Xcode 6.2
+3. CallingSample app that is part of the SDK download [http://sinch.com/download]
+
+## Setup
+Open up the CallingSampleApp and add a target and select Apple Watch. This will set up everything you need to display stuff on the watch.
+
+

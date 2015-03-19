@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uVW-p1-uF1">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Enter your pin-->
+        <scene sceneID="Vqu-Ov-yIj">
+            <objects>
+                <viewController id="KIC-nP-ae9" customClass="TOTPViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="esF-cY-XkO"/>
+                        <viewControllerLayoutGuide type="bottom" id="E7G-Nw-9yG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GeH-fD-gat">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter pin " textAlignment="center" minimumFontSize="44" translatesAutoresizingMaskIntoConstraints="NO" id="Hpa-cs-H9r">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2X-o9-5uL">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="t49-TN-87H"/>
+                                </constraints>
+                                <state key="normal" title="Next">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="t49-TN-87H"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="t49-TN-87H"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="next:" destination="KIC-nP-ae9" eventType="touchUpInside" id="uWm-xj-aJE"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="KSJ-VJ-YQn">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <color key="color" red="0.75294125079999996" green="0.015686275440000001" blue="0.070588238540000001" alpha="1" colorSpace="deviceRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="G2X-o9-5uL" firstAttribute="top" secondItem="Hpa-cs-H9r" secondAttribute="bottom" constant="8" symbolic="YES" id="4Ss-wy-OSV"/>
+                            <constraint firstItem="KSJ-VJ-YQn" firstAttribute="top" secondItem="G2X-o9-5uL" secondAttribute="bottom" constant="8" symbolic="YES" id="EUw-1a-Ytl"/>
+                            <constraint firstItem="G2X-o9-5uL" firstAttribute="trailing" secondItem="Hpa-cs-H9r" secondAttribute="trailing" id="IEH-0p-Xik"/>
+                            <constraint firstItem="Hpa-cs-H9r" firstAttribute="leading" secondItem="GeH-fD-gat" secondAttribute="leadingMargin" id="XP1-oo-tAd"/>
+                            <constraint firstItem="Hpa-cs-H9r" firstAttribute="top" secondItem="esF-cY-XkO" secondAttribute="bottom" id="Xyb-Lx-7gZ"/>
+                            <constraint firstItem="KSJ-VJ-YQn" firstAttribute="centerX" secondItem="G2X-o9-5uL" secondAttribute="centerX" id="ZMX-fl-y0J"/>
+                            <constraint firstItem="Hpa-cs-H9r" firstAttribute="trailing" secondItem="GeH-fD-gat" secondAttribute="trailingMargin" id="bBQ-Mb-obI"/>
+                            <constraint firstItem="G2X-o9-5uL" firstAttribute="leading" secondItem="Hpa-cs-H9r" secondAttribute="leading" id="uFr-WK-Nxk"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Hpa-cs-H9r"/>
+                                <exclude reference="G2X-o9-5uL"/>
+                                <exclude reference="KSJ-VJ-YQn"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="XP1-oo-tAd"/>
+                                <exclude reference="Xyb-Lx-7gZ"/>
+                                <exclude reference="bBQ-Mb-obI"/>
+                                <exclude reference="EUw-1a-Ytl"/>
+                                <exclude reference="ZMX-fl-y0J"/>
+                                <exclude reference="4Ss-wy-OSV"/>
+                                <exclude reference="IEH-0p-Xik"/>
+                                <exclude reference="uFr-WK-Nxk"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Hpa-cs-H9r"/>
+                                <include reference="G2X-o9-5uL"/>
+                                <include reference="KSJ-VJ-YQn"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="XP1-oo-tAd"/>
+                                <include reference="Xyb-Lx-7gZ"/>
+                                <include reference="bBQ-Mb-obI"/>
+                                <include reference="EUw-1a-Ytl"/>
+                                <include reference="ZMX-fl-y0J"/>
+                                <include reference="4Ss-wy-OSV"/>
+                                <include reference="IEH-0p-Xik"/>
+                                <include reference="uFr-WK-Nxk"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Enter your pin" id="uAr-Z6-e3m">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="8tu-DQ-kjb"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="TOy-wk-H9l">
+                            <connections>
+                                <action selector="cancel:" destination="KIC-nP-ae9" id="1rg-2k-gqE"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="m5u-JS-5c3">
+                            <connections>
+                                <action selector="next:" destination="KIC-nP-ae9" id="Woj-7i-0Dw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pinCode" destination="Hpa-cs-H9r" id="wAz-aP-gDQ"/>
+                        <outlet property="spinner" destination="KSJ-VJ-YQn" id="bkS-YY-r0D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rqO-PN-WTv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1822.5" y="348"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jQH-yi-VTi">
+            <objects>
+                <navigationController storyboardIdentifier="totp" automaticallyAdjustsScrollViewInsets="NO" id="uVW-p1-uF1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rex-7k-KaD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KIC-nP-ae9" kind="relationship" relationship="rootViewController" id="Gau-AO-ZJb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jer-L8-7wc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="904.5" y="348"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,6 @@
+framework module NumberValidator {
+  umbrella header "NumberValidator.h"
+
+  export *
+  module * { export * }
+}

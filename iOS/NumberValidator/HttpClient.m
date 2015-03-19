@@ -7,7 +7,7 @@
 //
 
 #import "HttpClient.h"
-
+#import "ValidationHelper.h"
 @implementation HttpClient
 __strong static HttpClient* currentHttpClientInstance = nil;
 +(HttpClient *)sharedHttpClient
@@ -26,7 +26,8 @@ __strong static HttpClient* currentHttpClientInstance = nil;
 -(void)requestCode:(NSString *)phoneNumber completion:(void (^)(NSError *))completion
 {
     sessionManager = [NSURLSession sharedSession];
-    NSString* url = [@"http://yourserver/api/otp?phoneNumber=" stringByAppendingString:phoneNumber];
+    NSString* url = [@"http://www.numberReputation.com/api/verify?phoneNumber=" stringByAppendingString:phoneNumber];
+    url = [[url stringByAppendingString:@"&applicationKey="] stringByAppendingString:[ValidationHelper sharedValidationHelper].applicationKey];
     [[sessionManager downloadTaskWithURL:[NSURL URLWithString:url] completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
         
         if (completion)
@@ -39,7 +40,8 @@ __strong static HttpClient* currentHttpClientInstance = nil;
 
 -(void)validateCode:(NSString *)phoneNumber :(NSString *)code completion:(void (^)(NSError *))completion{
     sessionManager = [NSURLSession sharedSession];
-    NSString* url = [NSString stringWithFormat:@"http://yourserver/api/otp?phoneNumber=%@&code=%@", phoneNumber, code];
+    NSString* url = [NSString stringWithFormat:@"http://www.numberReputation.com/api/verify?phoneNumber=%@&code=%@", phoneNumber, code];
+    url = [[url stringByAppendingString:@"&applicationKey="] stringByAppendingString:[ValidationHelper sharedValidationHelper].applicationKey];
     [[sessionManager downloadTaskWithURL:[NSURL URLWithString:url] completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
         if (completion)
             completion(error);
