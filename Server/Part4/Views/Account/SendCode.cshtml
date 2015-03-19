@@ -1,0 +1,29 @@
+﻿@model Part4.Models.SendCodeViewModel
+@{
+    ViewBag.Title = "Send";
+}
+
+<h2>@ViewBag.Title.</h2>
+Open you app and generate a token
+
+@Model.SelectedProvider<br/>
+@ViewBag.Code<br/>
+@ViewBag.TimeStamp<br/>
+
+@section Scripts {
+    <script>
+        
+        function checkStatus() {
+            $.getJSON('@Url.Action("StatusCheck", "Verify")', function(data) {
+                if (data['status'] == 'Ok') {
+                    document.location = '@Url.Action("VerifyTOTP")?guid=' + data["guid"] + '&returnUrl=@Model.ReturnUrl';
+                } else {
+                    setTimeout(checkStatus, 1000);
+                }
+            });
+        }
+        $().ready(function() {
+            checkStatus();
+        });
+    </script>
+}

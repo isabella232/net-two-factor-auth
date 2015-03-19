@@ -24,7 +24,7 @@ namespace net_two_factor_authentication.Controllers {
 
             try {
                 // sms client will throw an error if something goes wrong 
-                var message = string.Format("Your code:{0} for verifying your number with me", code);
+                var message = string.Format("Your code:{0} for verifying your number with us", code);
 
                 Client smsClient = new Client("key", "secret");
                 await smsClient.SendSMS(number, message);
