@@ -307,8 +307,7 @@ namespace Part4.Controllers
                 var otp = new Totp(Base32Encoder.Decode(user.SinchAuthSecretKey));
             var date = DateTime.UtcNow;
             var code = otp.ComputeTotp(date);
-            ViewBag.Code = code;
-            ViewBag.TimeStamp = date;
+            
             return View(model);
 
         }
