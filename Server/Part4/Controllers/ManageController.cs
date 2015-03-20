@@ -177,6 +177,13 @@ namespace Part4.Controllers
         {
             var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), phoneNumber);
             // Send an SMS through the SMS provider to verify the phone number
+            if (UserManager.SmsService != null) {
+                var message = new IdentityMessage {
+                    Destination = phoneNumber,
+                    Body = "Your security code is: " + code
+                };
+                await UserManager.SmsService.SendAsync(message);
+            }
             ViewBag.code = code;
             return phoneNumber == null ? View("Error") : View(new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
         }
