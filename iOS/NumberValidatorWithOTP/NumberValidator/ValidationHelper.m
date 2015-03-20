@@ -8,7 +8,7 @@
 
 #import "ValidationHelper.h"
 #import "EnterPhoneNumberViewController.h"
-
+#import "SimpleKeychain.h"
 NSString* const NumberValidationDidCompleteNotification = @"NumberValidationDidCompleteNotification";
 NSString* const NumberValidationDidCancelNotification= @"NumberValidationDidCancelNotification";
 NSString* const PhoneNumberKey= @"PhoneNumberKey";
@@ -53,7 +53,17 @@ __strong static ValidationHelper* currentValidationHelperInstance = nil;
     }];
     
 }
+-(BOOL)hasInstanceData
+{
+    NSDictionary* data = [SimpleKeychain load:instanceDataKey account:instanceDataKey];
+    if (data == nil)
+        return NO;
+    return YES;
+}
 
-
+-(void)deleteInstanceData
+{
+    [SimpleKeychain delete:instanceDataKey account:instanceDataKey];
+}
 
 @end
