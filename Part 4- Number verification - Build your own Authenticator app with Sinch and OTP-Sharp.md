@@ -255,13 +255,21 @@ public class VerifyCodeResponse
 Lets implement the avove methods, and go thru them one by one, lets start with **ReqeustCode** wich will be the first step in the number verification process. 
 
 ```csharp
+[HttpGet]
+[Route("api/requestcode/{phonenumber}")]
 public async Task<HttpResponseMessage> RequestCode(string phoneNumber) {
     var number = phoneNumber.Trim();
     var user = UserManager.Users.First(u => u.PhoneNumber == phoneNumber);
-	if (user == null)
-    	throw new HttpException(404, "User not found");
-	//Take advantage of the ASP.net Identity to send SMS 
-    await UserManager.GenerateChangePhoneNumberTokenAsync(user.Id, number); 
+    var code = await UserManager.GenerateChangePhoneNumberTokenAsync(user.Id, number);
+    if (UserManager.SmsService != null)
+    {
+        var message = new IdentityMessage
+        {
+            Destination = number,
+            Body = "Your security code is: " + code
+        };
+        await UserManager.SmsService.SendAsync(message);
+    }
     return new HttpResponseMessage(HttpStatusCode.OK);
 }
 ```
@@ -274,7 +282,7 @@ public async Task<VerifyCodeResponse> VerifyCode(string phoneNumber, string code
 	if (user == null)
     	throw new HttpException(404, "User not found");
     VerifyCodeResponse vcr = new VerifyCodeResponse();
-    var result = await UserManager.VerifyChangePhoneNumberTokenAsync(user.Id, phoneNumber, code);
+    var result = await UserManager.VerifyChangePhoneNumberTokenAsync(user.Id, code, phoneNumber);
     if (result)
     {
         vcr.Secret = user.SinchAuthSecretKey;

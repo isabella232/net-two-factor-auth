@@ -16,6 +16,9 @@ namespace LoginSample.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public string TwoFactorSecret { get; set; }
+
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
