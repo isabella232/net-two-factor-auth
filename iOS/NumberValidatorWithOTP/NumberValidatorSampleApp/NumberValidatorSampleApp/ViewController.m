@@ -16,11 +16,13 @@
 @end
 
 @implementation ViewController
+@synthesize validatebutton;
 
 -(void)verificationComplete:(NSNotification*)notification
 {
     NSLog(@"number validated %@",[[notification userInfo]
                                   objectForKey:PhoneNumberKey]);
+    [validatebutton setTitle:@"Login to website" forState:UIControlStateNormal];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,18 +34,33 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NumberValidationDidCompleteNotification object:nil];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    if ([[ValidationHelper sharedValidationHelper] hasInstanceData] == NO)
+    {
+        [validatebutton setTitle:@"Validate phone" forState:UIControlStateNormal];
+    }
 
+        
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)validate:(id)sender {
-    [[ValidationHelper sharedValidationHelper] startValidation];
-}
+
 
 
 - (IBAction)strart2FA:(id)sender {
-    [[ValidationHelper sharedValidationHelper] showTOTP];
+    if ([[ValidationHelper sharedValidationHelper] hasInstanceData])
+        [[ValidationHelper sharedValidationHelper] showTOTP];
+    else
+        [[ValidationHelper sharedValidationHelper] startValidation];
     
+}
+
+- (IBAction)deleteInstanceData:(id)sender {
+    [[ValidationHelper sharedValidationHelper] deleteInstanceData];
+    [validatebutton setTitle:@"Validate phone" forState:UIControlStateNormal];
+
 }
 @end

@@ -14,4 +14,7 @@
 +(ValidationHelper *)sharedValidationHelper;
 -(void)startValidation;
 -(void)showTOTP; //new
+-(void)deleteInstanceData;
+-(BOOL)hasInstanceData;
+
 @end

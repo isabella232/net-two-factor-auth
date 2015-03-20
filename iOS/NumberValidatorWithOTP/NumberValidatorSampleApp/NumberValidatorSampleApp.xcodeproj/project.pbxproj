@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		774320F81ABB87720056810B /* NumberValidatorWithOTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774320F71ABB87720056810B /* NumberValidatorWithOTP.framework */; };
 		774320F91ABB87720056810B /* NumberValidatorWithOTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 774320F71ABB87720056810B /* NumberValidatorWithOTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		776D9B5B1ABC8E56007A8FE6 /* logo-297x142@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 776D9B5A1ABC8E56007A8FE6 /* logo-297x142@2x.png */; };
 		77D213EA1A79016D00C37DB4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D213E91A79016D00C37DB4 /* main.m */; };
 		77D213ED1A79016D00C37DB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D213EC1A79016D00C37DB4 /* AppDelegate.m */; };
 		77D213F01A79016D00C37DB4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D213EF1A79016D00C37DB4 /* ViewController.m */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		774320F71ABB87720056810B /* NumberValidatorWithOTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = NumberValidatorWithOTP.framework; path = "/Users/christianjensen/Library/Developer/Xcode/DerivedData/NumberValidatorWithOTP-axvznfvxahtrsnbignqdcmvngcrl/Build/Products/Debug-iphoneos/NumberValidatorWithOTP.framework"; sourceTree = "<absolute>"; };
+		776D9B5A1ABC8E56007A8FE6 /* logo-297x142@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-297x142@2x.png"; sourceTree = "<group>"; };
 		77D213E41A79016D00C37DB4 /* NumberValidatorSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberValidatorSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77D213E81A79016D00C37DB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77D213E91A79016D00C37DB4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		77D213E61A79016D00C37DB4 /* NumberValidatorSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				776D9B5A1ABC8E56007A8FE6 /* logo-297x142@2x.png */,
 				77D213EB1A79016D00C37DB4 /* AppDelegate.h */,
 				77D213EC1A79016D00C37DB4 /* AppDelegate.m */,
 				77D213EE1A79016D00C37DB4 /* ViewController.h */,
@@ -222,6 +225,7 @@
 				77D213F31A79016D00C37DB4 /* Main.storyboard in Resources */,
 				77D213F81A79016D00C37DB4 /* LaunchScreen.xib in Resources */,
 				77D213F51A79016D00C37DB4 /* Images.xcassets in Resources */,
+				776D9B5B1ABC8E56007A8FE6 /* logo-297x142@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

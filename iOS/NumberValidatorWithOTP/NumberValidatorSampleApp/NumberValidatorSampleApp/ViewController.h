@@ -12,6 +12,9 @@
 @interface ViewController : UIViewController
 
 - (IBAction)strart2FA:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *validatebutton;
+
+- (IBAction)deleteInstanceData:(id)sender;
 
 @end
 

@@ -34,7 +34,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter phone number" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="P7m-xx-ZJg">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="phone number" textAlignment="center" minimumFontSize="44" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="P7m-xx-ZJg">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad"/>
@@ -153,10 +153,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ITo-HT-pi2">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter code" textAlignment="center" minimumFontSize="44" translatesAutoresizingMaskIntoConstraints="NO" id="ITo-HT-pi2">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="8Gp-4p-XB5"/>
+                                    <constraint firstAttribute="height" constant="31" id="8Gp-4p-XB5">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -171,12 +173,28 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the code you recieve via sms" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJs-Fr-bmz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the code you recieve via sms" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJs-Fr-bmz">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRE-dL-2ig">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.75294125079999996" green="0.015686275440000001" blue="0.070588238540000001" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="177" width="368" height="21"/>
+                                </variation>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="VsY-rp-aaC">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <color key="color" red="0.75294125079999996" green="0.015686275440000001" blue="0.070588238540000001" alpha="1" colorSpace="deviceRGB"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="190" y="390" width="37" height="37"/>
+                                </variation>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0m-Nw-JEr">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Next">
@@ -186,23 +204,12 @@
                                     <action selector="done:" destination="yq3-gU-x7k" eventType="touchUpInside" id="PeL-kq-sej"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRE-dL-2ig">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.75294125079999996" green="0.015686275440000001" blue="0.070588238540000001" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="VsY-rp-aaC">
-                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
-                                <color key="color" red="0.75294125079999996" green="0.015686275440000001" blue="0.070588238540000001" alpha="1" colorSpace="deviceRGB"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="190" y="390" width="37" height="37"/>
-                                </variation>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="u0m-Nw-JEr" firstAttribute="top" secondItem="ITo-HT-pi2" secondAttribute="bottom" constant="7" id="520-Ma-Jj1"/>
+                            <constraint firstItem="u0m-Nw-JEr" firstAttribute="top" secondItem="ITo-HT-pi2" secondAttribute="bottom" constant="7" id="520-Ma-Jj1">
+                                <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                            </constraint>
                             <constraint firstItem="ITo-HT-pi2" firstAttribute="top" secondItem="AJs-Fr-bmz" secondAttribute="bottom" constant="8" symbolic="YES" id="DY5-kV-qig"/>
                             <constraint firstItem="u0m-Nw-JEr" firstAttribute="leading" secondItem="yRE-dL-2ig" secondAttribute="leading" id="KbL-VC-bXp"/>
                             <constraint firstItem="AJs-Fr-bmz" firstAttribute="top" secondItem="By3-26-Bgy" secondAttribute="bottom" constant="8" id="KfD-Ew-BAQ"/>
@@ -210,19 +217,23 @@
                             <constraint firstItem="ITo-HT-pi2" firstAttribute="leading" secondItem="AJs-Fr-bmz" secondAttribute="leading" id="U45-sM-Zzu"/>
                             <constraint firstItem="AJs-Fr-bmz" firstAttribute="leading" secondItem="hfp-Gn-dGJ" secondAttribute="leadingMargin" id="YXH-n9-DyD"/>
                             <constraint firstItem="u0m-Nw-JEr" firstAttribute="trailing" secondItem="yRE-dL-2ig" secondAttribute="trailing" id="chH-9H-tCY"/>
-                            <constraint firstItem="yRE-dL-2ig" firstAttribute="top" secondItem="u0m-Nw-JEr" secondAttribute="bottom" constant="8" symbolic="YES" id="hxR-SZ-zFp"/>
+                            <constraint firstItem="yRE-dL-2ig" firstAttribute="top" secondItem="u0m-Nw-JEr" secondAttribute="bottom" constant="8" symbolic="YES" id="hxR-SZ-zFp">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-2"/>
+                            </constraint>
                             <constraint firstItem="ITo-HT-pi2" firstAttribute="leading" secondItem="u0m-Nw-JEr" secondAttribute="leading" id="iq8-Tr-05z"/>
                             <constraint firstItem="AJs-Fr-bmz" firstAttribute="trailing" secondItem="hfp-Gn-dGJ" secondAttribute="trailingMargin" id="jwX-eD-lKd"/>
                             <constraint firstItem="ITo-HT-pi2" firstAttribute="trailing" secondItem="u0m-Nw-JEr" secondAttribute="trailing" id="sUc-LA-1Mi"/>
-                            <constraint firstItem="u0m-Nw-JEr" firstAttribute="top" secondItem="hfp-Gn-dGJ" secondAttribute="top" constant="139" id="vPq-gc-BBM"/>
+                            <constraint firstItem="u0m-Nw-JEr" firstAttribute="top" secondItem="hfp-Gn-dGJ" secondAttribute="top" constant="139" id="vPq-gc-BBM">
+                                <variation key="heightClass=regular-widthClass=compact" constant="149"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="ITo-HT-pi2"/>
                                 <exclude reference="AJs-Fr-bmz"/>
-                                <exclude reference="u0m-Nw-JEr"/>
                                 <exclude reference="yRE-dL-2ig"/>
                                 <exclude reference="VsY-rp-aaC"/>
+                                <exclude reference="u0m-Nw-JEr"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="KfD-Ew-BAQ"/>
@@ -244,9 +255,9 @@
                             <mask key="subviews">
                                 <include reference="ITo-HT-pi2"/>
                                 <include reference="AJs-Fr-bmz"/>
-                                <include reference="u0m-Nw-JEr"/>
                                 <include reference="yRE-dL-2ig"/>
                                 <include reference="VsY-rp-aaC"/>
+                                <include reference="u0m-Nw-JEr"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="KfD-Ew-BAQ"/>

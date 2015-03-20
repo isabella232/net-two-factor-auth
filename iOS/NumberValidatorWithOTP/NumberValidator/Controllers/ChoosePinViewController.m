@@ -42,7 +42,7 @@
     ///store both pin and secret securly
     NSDictionary* instanceData = @{pinCodeKey:pinCode.text, sharedSecretKey:sharedSecret, PhoneNumberKey: phoneNumber};
     [SimpleKeychain save:instanceDataKey account:instanceDataKey data:instanceData];
-    [[NSNotificationCenter defaultCenter] postNotificationName:NumberValidationDidCancelNotification object:self userInfo:@{PhoneNumberKey: self.phoneNumber}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NumberValidationDidCompleteNotification object:self userInfo:@{PhoneNumberKey: self.phoneNumber}];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
