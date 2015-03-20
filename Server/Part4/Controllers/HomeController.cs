@@ -11,7 +11,7 @@ namespace Part4.Controllers {
         }
 
         public ActionResult About() {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Sinch 2FA authentication sample";
 
             return View();
         }

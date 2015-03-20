@@ -71,7 +71,6 @@ namespace net_two_factor_authentication.Controllers {
                 };
                 await UserManager.SmsService.SendAsync(message);
             }
-            
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
