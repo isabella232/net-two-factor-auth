@@ -28,7 +28,7 @@ namespace Part4
 
     public class SmsService : IIdentityMessageService {
         public Task SendAsync(IdentityMessage message) {
-            Sinch.SMS.Client client = new Client("2742ea3b-34ed-494b-9018-69ff426a66f1", "jTnjAxS2V02z/Hw9oCenEA==");
+            Sinch.SMS.Client client = new Client("yourkey", "yoursecret");
             var result = client.SendSMS(message.Destination.Trim(), message.Body);
             return result;
             //SNSStatus status = client.CheckStatus(result).Result;
