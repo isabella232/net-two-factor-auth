@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Base32;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -409,6 +410,8 @@ namespace Part4.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
+            AuthenticationManager.SignOut("ApplicationCookie");
+            
             return RedirectToAction("Index", "Home");
         }
 

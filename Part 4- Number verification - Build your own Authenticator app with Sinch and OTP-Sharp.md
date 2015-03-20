@@ -1,15 +1,19 @@
 # Part 4: Number verification - Build your own Authenticator app with Sinch and OTP-Sharp
 
-In previous tutorials I showed you how easy it is to verify numbers and use two factor auth on both web and on a iOS device. In this tutorial we are going to build a two factor auth system that that only sends one SMS per app install to enable two factor auth for web, think Microsoft and Google Authenticator or BankId or even facebook login on iOS. The reason for building such a system is that 1. you save money on your two factor auth by eliminating SMS on every single login. Another compelling reason is that you can drive downloads to you app by making it super simple and quick to login to you app. See flow below. This tutorial is implementing the RFC 6238 that Google Authenticator uses.  
+In previous tutorials I showed you how easy it is to verify numbers and use two factor auth on both web and on a iOS device. In this tutorial we are going to build a two factor auth system that that only sends one SMS per app install to enable two factor auth for web, think Microsoft and Google Authenticator or BankId or even facebook login on iOS. The reason for building such a system is that 
+1. You save money on your two factor auth by eliminating SMS on every single login. 
+2. Drive downloads to your app by making it super simple and quick to login to your service. 
 
-The goal is that you will have a template project using Sinch for SMS and sms less 2FA that you can use in production for you website. 
-
-This tutorial will take 60-90 minutes to finish, the finished sample can be downloaded here http://github.com/sinch/sldkafjlaksdjfksldfj
+See flow below. This tutorial is implementing the RFC 6238 that Google Authenticator uses.  
 
 ## Appflow
 ![](http://www.websequencediagrams.com/files/render?link=TmBz0wWa5caJjKoH_sp3)
 
-Prerequisites
+The goal is that you will have a template project using Sinch for SMS and SMS free 2FA that you can use in production for you website. 
+
+This tutorial will take 60-120 minutes to finish, the finished sample can be downloaded here http://github.com/sinch/sldkafjlaksdjfksldfj
+
+## Prerequisites
 1. Good knowledge about .net, MVC and WebAPI
 
 ## Setup
@@ -900,6 +904,8 @@ Ok almost done here. last thing we need is a method in our ValidationHelper to i
 ## More ideas to improve the experience
 - Send an push to the phone when there is a auth request from the website.
 - Implement functionality to prompt both website and mobile that a wrong token was generated.
+- Add BLE support so its will login automatically when the phone is close to the computer. 
+
 
 
 
