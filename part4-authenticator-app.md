@@ -610,7 +610,7 @@ The above code just forwards the data as well to the completion block, if you re
 
 ## Choose pin UI
 Lets add and change to the current UI to let us set a pin, when we are don't it should look like below.
-![](images/part4/storyboardpart4.png)
+![](Images/part4/storyboardpart4.png)
 
 - First create a controller and call it **ChoosePinController**
 - Open up the ValidationStoryBoard.storyboard and add a new view
@@ -622,7 +622,7 @@ Lets add and change to the current UI to let us set a pin, when we are don't it 
 
 Your view should now look like this
 
-<img src="images/part4/choosepin.png" height="600">
+![](Images/part4/choosepin.png)
 
 ### Hook up the textfield and buttons 
 Add and outlet and action for the textfield and button **ChoosePinController** at the same time add a property that will hold the sharedSecret and the phone number while the user chooses pin. 
@@ -735,7 +735,7 @@ Done, now the phone is verified, we have stored a user generated pin code and sh
 
 - Add a new story board and call it **TOTP.storyboard**
 - Add textfield and Next buttons like the screen shot
-![](images/part4/totpview.png)
+![](Images/part4/totpview.png)
 - Create a UIVIewController and call it **TOTPController**
 
 - Set the file owner of the new created view to TOTPController and add outlets and actions to the buttons and textfield. 
