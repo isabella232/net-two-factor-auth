@@ -1,6 +1,6 @@
 # Build Your Own Number Verification And Two Authentication System C# .net
 
-More and more websites and apps rely on knowing your phone number and in many cases using that number for two factor authentication (more info about 2FA here [https://www.sinch.com/opinion/what-is-two-factor-authentication/](https://www.sinch.com/opinion/what-is-two-factor-authentication/ "WHAT IS TWO FACTOR AUTHENTICATION?")).
+More and more websites and apps rely on knowing your phone number and in many cases using that number for two factor authentication (read more about info about [two factor authentication](https://www.sinch.com/opinion/what-is-two-factor-authentication/)).
 
 In this tutorial you will learn how to build your own two factor system in about 30 minutes. In part 2 we will implement it in one of our clients. 
 
