@@ -125,7 +125,7 @@ public HttpResponseMessage VerifyOTP(string phoneNumber, string code)
 ```
 
 ## Testing it out with Postman 
-I like to use postman for chrome to test out my restapis you can get it [here](https://www.google.se/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0CCAQFjAA&url=https%3A%2F%2Fchrome.google.com%2Fwebstore%2Fdetail%2Fpostman-rest-client%2Ffdmmgilgnpjigdojojpjoooidkmcomcm%3Fhl%3Den&ei=1nbCVPyzBoXuyQOG-4K4DA&usg=AFQjCNHaecLwAKk91gpdCY_y1x_ViIrHwQ&bvm=bv.84349003,d.ZWU). 
+I like to use postman for chrome to test out my REST APIs you can get it [here](https://chrome.google.com/webstore/detail/postman-rest-client-packa/fhbjgbiflinjbdggehcddcbncdddomop). 
 
 Hit F5 to start the app locally and make a note of the port. In my case it was 2945. Then head over to http://localhost:yourport/Help and you should see how to call our new API. 
 
