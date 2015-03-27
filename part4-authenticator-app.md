@@ -628,7 +628,7 @@ Let’s add and change the current UI to let us set a PIN. When we are done, it 
 
 Your view should now look like this:
 
-![](Images/part4/choosepin.png)
+![](Images/part4/choosepin-new.png)
 
 ###Hook up the text field and buttons 
 Add an outlet and action for the text field and button **ChoosePinController**. At the same time, add a property that will hold the sharedSecret and the phone number while the user chooses a PIN. 
