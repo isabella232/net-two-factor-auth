@@ -17,7 +17,7 @@ The goal is to have a template project using Sinch for SMS and SMS free 2FA that
 This tutorial will take 60 to 120 minutes to finish; the finished sample can be [downloaded here](http://github.com/sinch/sldkafjlaksdjfksldfj).
 
 ##Prerequisites
-A solid understanding of .NET, MVC and WebAPI
+- A solid understanding of .NET, MVC and WebAPI
 
 ##Setup
 1. Create a new a project 
@@ -391,7 +391,7 @@ Next up, change the flow of the UI reflect so that no code will be entered in th
 
 Open up AccountController and change the below methods:
 
-Change SendCode(string returnUrl, bool RememberMe) to below
+Change SendCode (string returnUrl, bool RememberMe) to below
 ```csharp
 [AllowAnonymous]
 public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
@@ -482,7 +482,7 @@ to:
     NSBundle* bundle = [NSBundle  bundleWithIdentifier:@"com.sinch.NumberValidatorWithOTP"]; 
 ```
 
-Next, you need to change the methods in HttpClient to reflect your requestCode *("/api/requestcode/{phone number})* and verifyCode *(/api/verifycode/{phoneNumber}/{code})* endpoints from above. 
+Next, you need to change the methods in httpClient to reflect your requestCode *("/api/requestcode/{phone number})* and verifyCode *(/api/verifycode/{phoneNumber}/{code})* endpoints from above. 
 
 ```objectivec
 -(void)requestCode:(NSString *)phoneNumber completion:(void (^)(NSError *))completion
@@ -509,7 +509,7 @@ Next, you need to change the methods in HttpClient to reflect your requestCode *
 ```
 
 ##Let the user choose a PIN 
-We don't want to store a PIN code in NUSUSERDEFAULTS because it’s a bit insecure. Instead, we are going to use Apple’s keychain wrapper to store both a PIN code and the  shareSecret, add a file called SimpleKeychain and copy the following into .h file 
+We don't want to store a PIN code in NUSUSERDEFAULTS because it’s a bit insecure. Instead, we are going to use Apple’s keychain wrapper to store both a PIN code and the  shareSecret, add a file called SimpleKeychain and copy the following into **.h** file 
 
 ```objectivec
 #import <Foundation/Foundation.h>
@@ -575,7 +575,7 @@ Read more at Apple if you want to dive deeper into this code.
 
 When an SMS PIN code is verified, we want the user to choose a personal PIN code to unlock the secret. 
 
-Open HttpClient.m and change the sharedHttpClient to:
+Open **httpClient.m** and change the sharedHttpClient to:
 
 ```objectivec
 +(HttpClient *)sharedHttpClient
@@ -619,10 +619,11 @@ Let’s add and change the current UI to let us set a PIN. When we are done, it 
 
 1. Create a controller and call it **ChoosePinController**
 2. Open up the ValidationStoryBoard.storyboard and add a new view
-	a. Change the titles of the Done button on the entered view to Next
-	b. Add a segue from the FileOwner to the new view and call it choosePinSeg
-	c. Set the ViewController of the new view to ChoosePinController
-	d. Add a text field to the view like below and set the keyboard type to numberPad
+	
+	a. Change the titles of the Done button on the entered view to Next<br>
+	b. Add a segue from the FileOwner to the new view and call it choosePinSeg<br>
+	c. Set the ViewController of the new view to ChoosePinController<br>
+	d. Add a text field to the view like below and set the keyboard type to numberPad<br>
 	e. Add a button and set the title to Save PIN 
 
 Your view should now look like this:
@@ -770,7 +771,7 @@ Now the keyboard will pop up when the view loads. Next, dismiss the controller i
 ```
 
 ### Verifying user pincode
-Still in the **TOTPcontroller.m** add an import for **SimplekeyChain.h** and **HttpClient.h**
+Still in the **TOTPcontroller.m** add an import for **SimplekeyChain.h** and **httpClient.h**
 
 ```objectivec
 - (IBAction)next:(id)sender {
@@ -877,7 +878,7 @@ That httpClient verifyToken doesn't exist. Let’s implement it, as you might re
     
 }
 ```
-Hang in there; we are almost done! The last thing we need is a method in our ValidationHelper to initiate the verification process. 
+Hang in there; we're almost done! The last thing we need is a method in our ValidationHelper to initiate the verification process. 
 **ValidationHelper.h**
 
 ```objectivec
@@ -907,9 +908,9 @@ Hang in there; we are almost done! The last thing we need is a method in our Val
 
 
 ##More ideas to improve the experience
-Send an push to the phone when there is an authentication request from the website
-Implement functionality to prompt both website and mobile that a wrong token was generated
-Add Bluetooth low energy support so it will log in automatically when the phone is close to the computer
+- Send an push to the phone when there is an authentication request from the website
+- Implement functionality to prompt both website and mobile that a wrong token was generated
+- Add Bluetooth low energy (BLE) support so it will log in automatically when the phone is close to the computer
 
 
 
