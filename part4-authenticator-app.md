@@ -739,7 +739,7 @@ Now the phone is verified. We have stored a user-generated PIN code and shared s
 ##Implementing the 2FA view
 
 1. Add a new storyboard and call it **TOTP.storyboard**
-2. Add text field and Next buttons like in the screenshot
+2. Add text field and Next buttons like in the screenshot<br>
 ![](Images/part4/totpview.png)
 3. Create a UIVIewController and call it **TOTPController**
 4. Set the file owner of the new created view to TOTPController and add outlets and actions to the buttons and text field. 
