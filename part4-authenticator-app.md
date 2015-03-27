@@ -1,43 +1,47 @@
-# Part 4: Number verification - Build your own Authenticator app with Sinch and OTP-Sharp
+#Number Verification: Build Your Own Authenticator App With Sinch and OTP-Sharp - Part 4
 
-In previous tutorials I showed you how easy it is to verify numbers and use two factor auth on both web and on a iOS device. In this tutorial we are going to build a two factor auth system that that only sends one SMS per app install to enable two factor auth for web, think Microsoft and Google Authenticator or BankId or even facebook login on iOS. The reason for building such a system is that 
-1. You save money on your two factor auth by eliminating SMS on every single login. 
-2. Drive downloads to your app by making it super simple and quick to login to your service. 
+In previous tutorials, you learned to verify numbers and use two-factor authentication (2FA) on both web and an iOS device. In this tutorial, we are going to build a 2FA system that only sends one SMS per app install to enable 2FA for web—think Google Authenticator, BankID or even Facebook login on iOS. 
 
-See flow below. This tutorial is implementing the RFC 6238 that Google Authenticator uses.  
+Building such a system helps you:
 
-## Appflow
+1. Save money on your 2FA by eliminating SMS on every single login 
+2. Drive downloads to your app by making it simple and quick to log in to your service 
+
+See the flow below. This tutorial is implementing the RFC 6238 that Google Authenticator uses.  
+
+##Appflow
 ![](http://www.websequencediagrams.com/files/render?link=TmBz0wWa5caJjKoH_sp3)
 
-The goal is that you will have a template project using Sinch for SMS and SMS free 2FA that you can use in production for you website. 
+The goal is to have a template project using Sinch for SMS and SMS free 2FA that you can use in production for you website. 
 
-This tutorial will take 60-120 minutes to finish, the finished sample can be downloaded here http://github.com/sinch/sldkafjlaksdjfksldfj
+This tutorial will take 60 to 120 minutes to finish; the finished sample can be [downloaded here](http://github.com/sinch/sldkafjlaksdjfksldfj).
 
-## Prerequisites
-1. Good knowledge about .net, MVC and WebAPI
+##Prerequisites
+A solid understanding of .NET, MVC and WebAPI
 
-## Setup
-1. Create a new a project and 
-2. Select MVC project with basic Authentication and WebAPI
+##Setup
+1. Create a new a project 
+2. Select MVC project with basic authentication and WebAPI
 ![](Images/part4/createprojectwithapi.png)
 3. In PM console, update your packages `pm>update-package`
-4. In PM Console install Sinch.SMS `pm>Install-Package Sinch.SMS`
-5. In PM Console install OTPSharp `pm>Install-Package OtpSharp` 
+4. In PM console, install Sinch.SMS `pm>Install-Package Sinch.SMS`
+5. In PM console, install OTPSharp `pm>Install-Package OtpSharp` 
 
-## Modifying ApplicationUser class
-In this tutorial we are going to add a custom TwoFactor Auth provider that is based on IUserTokenProvider. But First we want to add some properties to the Applicationuser object.
-First in PM console run Ènable-Migrations` and add below to ApplicationUser 
+##Modifying ApplicationUser class
+In this tutorial, we are going to add a custom 2FA provider that is based on IUserTokenProvider. But first, we want to add some properties to the ApplicationUser object.
+First, in PM console, run `Enable-Migrations` and add below to ApplicationUser: 
 
 ```csharp
 public bool IsSinchAuthEnabled { get; set; }
 public string SinchAuthSecretKey { get; set; }
 
 ```
-In package manager console, run `update-datbase`
+In package manager console, run `update-datbase`.
 
 
-## Implementing your own TokenProvider
-Create a new class and name it SinchAuthTokenProvider 
+##Implementing your own TokenProvider
+Create a new class and name it SinchAuthTokenProvider: 
+
 ```csharp
 public class SinchAuthTokenProvider 
 : IUserTokenProvider<ApplicationUser, string>
@@ -69,13 +73,13 @@ public class SinchAuthTokenProvider
 }
 ```
 
-In the code above, we dont need to implement the GenerateAsync since that will be provided by a service when you verify your phonenumber later on. NotifyAsync will be implemented later to send a push to the user in the app urging them to launch the app.
+In the code above, we don’t need to implement the GenerateAsync because that will be provided by a service when you verify your phone number later on. NotifyAsync will be implemented later to send a push to the user in the app, urging them to launch the app.
 
-## Register a new 2FA provider
-Open **App_Start\IdentityConfig.cs** comment out SMS and email token providers and add SinchAuth
+##Register a new 2FA provider
+Open **App_Start\IdentityConfig.cs** comment out SMS and email token providers. Add SinchAuth:
 
 ```csharp
-// Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
+// Register two-factor authentication providers. This application uses phone and emails as a step of receiving a code for verifying the user
 // You can write your own provider and plug it in here.
 //manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<ApplicationUser>
 //{
@@ -89,8 +93,8 @@ Open **App_Start\IdentityConfig.cs** comment out SMS and email token providers a
 manager.RegisterTwoFactorProvider("SinchAuthToken", new SinchAuthTokenProvider());
 ```
 
-##Enabling SMS code to be sent out when phone is Added to the account
-Find SMSService in **IdentityConfig.cs**
+##Enabling SMS code to be sent out when phone is added to the account
+Find SMSService in **IdentityConfig.cs**:
 ```csharp
 public class SmsService : IIdentityMessageService {
 	public Task SendAsync(IdentityMessage message) {
@@ -99,11 +103,11 @@ public class SmsService : IIdentityMessageService {
 	}
 }
 ```
-Change the key and secret to the key you have in your [dashboard](http://sinch.com/dashboard)
+Change the key and secret to the key you have in your [dashboard](http://sinch.com/dashboard).
 
-## Adding UI to let the user select to use SinchAuth 
-Open the user management index view (**Views\Manage\Index.cshtml**) 
-remove the comments around Two factor auth and make it look like below, also uncomment the Phonenumber field since we will use Phonenumber to identify a user.
+##Adding UI to let the user select to use SinchAuth 
+Open the user management index view (**Views\Manage\Index.cshtml**). 
+Remove the comments around 2FA and make it look like the below code. Also, uncomment the phone number field because we will use the phone number to identify a user.
 
 
 ```html
@@ -133,7 +137,7 @@ remove the comments around Two factor auth and make it look like below, also unc
 
 ```
 
-Change **EnableTwoFactorAuthentication** action to look like this 
+Change **EnableTwoFactorAuthentication** action to look like this: 
 
 ```csharp
 [HttpPost]
@@ -155,8 +159,8 @@ public async Task<ActionResult> EnableTwoFactorAuthentication()
     return RedirectToAction("Index", "Manage");
 }
 ```
-This will set the sinchauth to be true, and add the key that the phone later will get. 
-Change **DisableTwoFactorAuthentication** action to below
+This will set the SinchAuth to be true. Add the key that the phone will get later. 
+Change **DisableTwoFactorAuthentication** action to below:
   
 ```csharp
 [HttpPost]
@@ -174,18 +178,18 @@ public async Task<ActionResult> DisableTwoFactorAuthentication()
 }
 ```
 
-## Run it
-Run the application by pressing **F5**, and log in again you should now be presented with this
+##Run it
+Run the application by pressing **F5**, and log in again. You should now be presented with this:
 ![](Images/part4/loginscreen1.png) 
-press next and get this
+Press Next and get this:
 ![](Images/part4/loginscreen2.png) 
 
-Thats not so cool, and in this sample we are only going to support one so as soon as someone tries to login I want to skip directly to verify code. But first lets prepare a api to handle the mobile client 
+That’s not ideal, and in this sample, we are only going to support one, so as soon as someone tries to log in, we will skip directly to verify code. But first, let’s prepare an API to handle the mobile client. 
 
-## Adding API endpoints to verify phone and tokens
-As I said before we are going to very the number twice in app, just to make sure the user is in possession of the sim card both times since it might no happen on even the same day. (If you are to use WebAPI for the restof your project you should really add WebAPI secuirty to the whole you web api, read more [http://www.asp.net/web-api/overview/security/individual-accounts-in-web-api](http://www.asp.net/web-api/overview/security/individual-accounts-in-web-api)). 
+##Adding API endpoints to verify phone and tokens
+Again, we are going to verify the number twice in the app to ensure the user is in possession of the SIM card both times, since it might not happen on the same day. (If you are to use WebAPI for the rest of your project, you should really add WebAPI security to the whole WebAPI. [Read more here](http://www.asp.net/web-api/overview/security/individual-accounts-in-web-api).) 
 
-Create a WebApi controller and name it VerifyController and lets add some plumbing code for Asp.Net identity and a respone object for when you verified a code. 
+Create a WebAPI controller and name it VerifyController. Let’s add some plumbing code for Asp.Net identity and a response object for when you verify a code. 
 
 ```csharp
 public class VerifyController : ApiController {
@@ -256,7 +260,7 @@ public class VerifyCodeResponse
 }
 ```
 
-Lets implement the avove methods, and go thru them one by one, lets start with **ReqeustCode** wich will be the first step in the number verification process. 
+Let’s implement the above methods and go through them one by one, starting with **ReqeustCode**, which will be the first step in the number verification process. 
 
 ```csharp
 [HttpGet]
@@ -278,7 +282,7 @@ public async Task<HttpResponseMessage> RequestCode(string phoneNumber) {
 }
 ```
 
-Next lets implement the method to verify the code sent by sms and return the secret to the to client.  
+Next, let’s implement the method to verify the code sent by SMS and return the secret to the to client.  
  
 ```csharp
 public async Task<VerifyCodeResponse> VerifyCode(string phoneNumber, string code) {
@@ -300,8 +304,7 @@ public async Task<VerifyCodeResponse> VerifyCode(string phoneNumber, string code
 }
 ```
 
-Last we need to implement the method where we will verify a generated token from the handset.
-For this phase because we are not verifying the code from the browswer we are going to generate a one time link for the browswer to login once the code is verified. 
+We need to implement the method where we will verify a generated token from the handset. For this phase, because we are not verifying the code from the browser, we are going to generate a one-time link for the browser to log in once the code is verified. 
 
 ```csharp
 public class OneTimeLink {
@@ -339,7 +342,7 @@ public class OneTimeLinks {
 }
 ```
 
-The way we are going to use above code is to add a an entry to the list once a TOPT token is verifyied  
+We will use the above code by adding an entry to the list once a TOPT token is verified:  
 
 ```csharp
 [HttpPost]
@@ -358,7 +361,7 @@ public async Task<HttpResponseMessage> VerifyToken(string token, string phoneNum
 }
 ```
 
-Last lets add an enpoint to check for links for the webclient to the verifycontroller, later will use this to see if we want to try and authenticate user and guid.
+Now let’s add an endpoint to check for links for the webclient to the verifycontroller. Later we will use this to see if we want to try and authenticate user and GUID.
 
 ```csharp
 [HttpGet]
@@ -383,10 +386,10 @@ public async Task<object> StatusCheck()
 
 
 
-## Change the UI of the 2FA
-Next up it to change the flow of the UI reflect that no code will be entered in the webui, but rather just continue to a logged in state as soon as you verified an TOTP code.   
+##Change the UI of the 2FA
+Next up, change the flow of the UI reflect so that no code will be entered in the WebUI, but rather just continue to a logged in state as soon as you verify a TOTP code.   
 
-Open up AccountController and change below methods.
+Open up AccountController and change the below methods:
 
 Change SendCode(string returnUrl, bool RememberMe) to below
 ```csharp
@@ -401,7 +404,7 @@ public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
     return View();
 }
 ```
-We want the check status of the OTP in the view so open SendCode.cshtml and change it to below adn prompt the user to launch the mobile app and enter code. 
+To check status of the OTP in the view, open SendCode.cshtml and change it to the below. Prompt the user to launch the mobile app and enter code:
 
 ```html
 @model Part4.Models.SendCodeViewModel
@@ -427,9 +430,9 @@ Open you app and generate a verify your identity
     </script>
 }
 ```
-What we are doing here is to check for status if there has been a onetime link added to the list, if that is the case, redirect to a new location and verifies the guid and user id and signin.
+Check if there has been a one-time link added to the list. If that is the case, redirect to a new location and verify the GUID, user ID and sign-in.
 
-Open AccountController and add the VerifyOTP action
+Open AccountController and add the VerifyOTP action:
 
 ```csharp
  [AllowAnonymous]
@@ -453,33 +456,33 @@ public async Task<ActionResult> VerifyTOTP(string guid, string returnUrl)
 }
 ```
 
-Wow, that was quite some work, now this is a pretty solid solution for you to use to continue to build your website. 
+Congratulations on making it this far! Now you have a pretty solid solution to help you continue to build your website. 
 
-## Wahts next on serverside 
-If you like this and would like to use in production I would probably enable oath on webapi since you will most likely use this as your backend for mobile as well. How to do that you can read about here
-[http://www.asp.net/web-api/overview/security/individual-accounts-in-web-api](http://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) 
+##What’s next on server-side? 
+If you would like to use this in production, enable oath on WebAPI because you will most likely use this as your backend for mobile as well. You can read about how to do that [here]
+(http://www.asp.net/web-api/overview/security/individual-accounts-in-web-api). 
 
-**Ready for more?** Ok, lets build the iOS client that you can use to to login to your service. 
+**Ready for more?** Okay, let’s build the iOS client that you can use to to log in to your service. 
 
-## Building a 2FA TOTP iOS client
-In this tutorial, we are verifying the phone number twice, once for creating your account and once you install the app. The reason for that is I want to make sure you are in possession of the sim card both times. In subsequent requests no SMS will be sent. The biggest security risk in this solution is that I will send the shared secret over to the device once time. The reason for this is that I didn't want to have to enter any code, or scan a QR code that felt was not a good experience. If you have doubts over sending the key encrypted over the internet once, you could have the user to enter in manually or send the shared secret with SMS and have a url to launch it.    
+##Building a 2FA TOTP iOS client
+In this tutorial, we are verifying the phone number twice: first when you create your account and again when you install the app. This ensures you are in possession of the SIM card both times. In subsequent requests, no SMS will be sent. You’ll have to send the shared secret over to the device one time—a big security risk—but won’t have to enter any code or scan a QR code. If you prefer not to send the encrypted key over the internet, you could have the user manually enter or send the shared secret with SMS, using a URL to launch it.    
 
-The generation of the TOPT code is from this excellent repo https://github.com/yazid/iOS-TOTP,  Yazid did a superb job of cleaning out googles sample code that is super bloated.
+The generation of the TOPT code is from [this excellent repo] (https://github.com/yazid/iOS-TOTP). Yazid did a superb job of cleaning out Google’s bloated sample code.
 
-To get up to speed create new project just like [part 2](https://www.sinch.com/tutorials/build-two-factor-authentication-system-pt-2/) in this tutorial but name it NumberValidatorWithOTP when you are done with that comeback here (or be lazy as me and just copy the repo and name refactor).
+To get up to speed, create a new project as we did in [Part 2](https://www.sinch.com/tutorials/build-two-factor-authentication-system-pt-2/), but name it NumberValidatorWithOTP. When you are done with that, come back here (or copy the repo and name refactor).
 
-## Preparation
-If you renamed you project you need to change startValidation method and load the correct bundle.
-Change the name of the line
+##Preparation
+If you renamed your project, you need to change startValidation method and load the correct bundle.
+Change the name of the line:
 ```objectivec
     NSBundle* bundle = [NSBundle  bundleWithIdentifier:@"com.sinch.NumberValidator"]; 
 ```
-to 
+to:
 ```objectivec
     NSBundle* bundle = [NSBundle  bundleWithIdentifier:@"com.sinch.NumberValidatorWithOTP"]; 
 ```
 
-Next you need to change the methods in HttpClient to reflect your requestCode *("/api/requestcode/{phone number})* and verifyCode *(/api/verifycode/{phoneNumber}/{code})* endpoints from above. 
+Next, you need to change the methods in HttpClient to reflect your requestCode *("/api/requestcode/{phone number})* and verifyCode *(/api/verifycode/{phoneNumber}/{code})* endpoints from above. 
 
 ```objectivec
 -(void)requestCode:(NSString *)phoneNumber completion:(void (^)(NSError *))completion
@@ -505,8 +508,8 @@ Next you need to change the methods in HttpClient to reflect your requestCode *(
 }
 ```
 
-## Let the user choose pin 
-We don't want to store a PIN code in NUSUSERDEFAULTS because its a bit insecure, so instead we are going to use apples keychain wrapper to store a both pin code and the  shareSecret, add a file called SimpleKeychain and copy the following in to .h file 
+##Let the user choose a PIN 
+We don't want to store a PIN code in NUSUSERDEFAULTS because it’s a bit insecure. Instead, we are going to use Apple’s keychain wrapper to store both a PIN code and the  shareSecret, add a file called SimpleKeychain and copy the following into .h file 
 
 ```objectivec
 #import <Foundation/Foundation.h>
@@ -524,6 +527,7 @@ We don't want to store a PIN code in NUSUSERDEFAULTS because its a bit insecure,
 (source: [btjones at github](https://gist.github.com/btjones/10287581) )
 
 and the implementation
+
 ```
 + (NSMutableDictionary *)getKeychainQuery:(NSString *)service account:(NSString *)account {
     return [NSMutableDictionary dictionaryWithObjectsAndKeys:
@@ -566,12 +570,13 @@ and the implementation
 }
 
 ```
-(source: [btjones at github](https://gist.github.com/btjones/10287581) )
-I am not going to go in to detail about this coede, read more at apple if you want to learn more. 
+(Source: [btjones at github](https://gist.github.com/btjones/10287581))
+Read more at Apple if you want to dive deeper into this code. 
 
-Now the flow of the application when a a SMS pin code is verified is that we want the user to choose a personal pin code to unlock the secret. 
+When an SMS PIN code is verified, we want the user to choose a personal PIN code to unlock the secret. 
 
-Open HttpClient.m and change the sharedHttpClient to this
+Open HttpClient.m and change the sharedHttpClient to:
+
 ```objectivec
 +(HttpClient *)sharedHttpClient
 {
@@ -590,9 +595,9 @@ Open HttpClient.m and change the sharedHttpClient to this
     return currentHttpClientInstance;
 }
 ```
-What we are doing is to configure the http client to accept json as the returned data. 
+Configure the http client to accept json as the returned data. 
 
-Now change the validateCode protocol and method to to handle NSDATA as parameter and implement the forwarding of the of the data. 
+Now, change the validateCode protocol and method to handle NSDATA as parameter and implement the forwarding of the of the data. 
 
 ```objectivec
 -(void)validateCode:(NSString *)phoneNumber :(NSString *)code completion:(void (^)(NSData* data, NSError * error))completion{
@@ -606,26 +611,26 @@ Now change the validateCode protocol and method to to handle NSDATA as parameter
     }] resume];
 }
 ```
-The above code just forwards the data as well to the completion block, if you recall this is called in the **EntercodeController** in this controller we want to change the flow a bit to display another controller where the user enters a personal pin code and saves that on the device tighter with the shared secret. 
+The above code forwards the data as well to the completion block. If you recall, this is called in the **EntercodeController**. In this controller, we want to change the flow a bit to display another controller where the user enters a personal PIN code and saves it on the device tighter with the shared secret. 
 
-## Choose pin UI
-Lets add and change to the current UI to let us set a pin, when we are don't it should look like below.
+##Choose a PIN UI
+Let’s add and change the current UI to let us set a PIN. When we are done, it should look like below:
 ![](Images/part4/storyboardpart4.png)
 
-- First create a controller and call it **ChoosePinController**
-- Open up the ValidationStoryBoard.storyboard and add a new view
-	1. Change the titles of the done button  on the entered view to next
-	2. Add a Segue form the FileOwner to the new view and call in choosePinSeg
-	3. Set the ViewController of the new view to ChoosePinController
-	4. Add a textfield to the view like below and set the keyboard type to numberPad
-	5. Add a button and set the title to Save pin 
+1. Create a controller and call it **ChoosePinController**
+2. Open up the ValidationStoryBoard.storyboard and add a new view
+	a. Change the titles of the Done button on the entered view to Next
+	b. Add a segue from the FileOwner to the new view and call it choosePinSeg
+	c. Set the ViewController of the new view to ChoosePinController
+	d. Add a text field to the view like below and set the keyboard type to numberPad
+	e. Add a button and set the title to Save PIN 
 
-Your view should now look like this
+Your view should now look like this:
 
 ![](Images/part4/choosepin.png)
 
-### Hook up the textfield and buttons 
-Add and outlet and action for the textfield and button **ChoosePinController** at the same time add a property that will hold the sharedSecret and the phone number while the user chooses pin. 
+###Hook up the text field and buttons 
+Add an outlet and action for the text field and button **ChoosePinController**. At the same time, add a property that will hold the sharedSecret and the phone number while the user chooses a PIN. 
 
 ```objectivec
 @property (weak, nonatomic) IBOutlet UITextField *pinCode;
@@ -633,7 +638,7 @@ Add and outlet and action for the textfield and button **ChoosePinController** a
 @property NSString* phoneNumber;
 - (IBAction)savePin:(id)sender;
 ```
-Open up **ChoosePinController.m**, now we want to keyboard to display as soon as the view appears, add the below 
+Open up **ChoosePinController.m**. Now to make the keyboard display as soon as the view appears, add the below:
 
 ```objectivec
 -(void)viewDidAppear:(BOOL)animated
@@ -642,7 +647,7 @@ Open up **ChoosePinController.m**, now we want to keyboard to display as soon as
 }
 ```
 
-Next we are going to save the pinched and shared secret securely we also want to make sure the pin code is at least 6 chars. add and import to **SimpleKeychain.h.h** and **NSNotificationEvents.h**
+Next, we are going to save the PIN code and shared secret securely. We also want to make sure the PIN code is at least six characters. Add and import to **SimpleKeychain.h.h** and **NSNotificationEvents.h**:
 
 ```objectivec
 -(void)savePin:(id)sender
@@ -667,22 +672,21 @@ Next we are going to save the pinched and shared secret securely we also want to
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 ```
-What we are doing here 
-Now you will get a build error, add the externs to **NSNotificationEvents.h** 
+Now you will get a build error. Add the externs to **NSNotificationEvents.h**: 
 
 ```objectivec
 UIKIT_EXTERN NSString* const pinCodeKey;
 UIKIT_EXTERN NSString* const sharedSecretKey;
 UIKIT_EXTERN NSString* const instanceDataKey;
 ```
-and define them in **ValidationHelper.m**
+Define them in **ValidationHelper.m**:
 
 ```objectivec
 NSString* const pinCodeKey= @"pinCode";
 NSString* const sharedSecretKey = @"sharedSecret";
 NSString* const instanceDataKey = @"instanceData";
 ```
-Not this controller is ready, lets change EnterCodeViewController to show this screen after the code is verified. Open **EnterCodeViewController.m** and change the done: action
+Now this controller is ready. Let’s change EnterCodeViewController to show this screen after the code is verified. Open **EnterCodeViewController.m** and change the action to done.
 
 ```objectivec
 - (IBAction)done:(id)sender {
@@ -718,7 +722,7 @@ Not this controller is ready, lets change EnterCodeViewController to show this s
     }];
 }
 ```
-Uncomment the -prepareForSegue method and implement the following to prepare choosePin controller 
+Uncomment the -prepareForSegue method and implement the following to prepare choosePin controller: 
 
 ```objectivec
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -729,17 +733,16 @@ Uncomment the -prepareForSegue method and implement the following to prepare cho
     }
 }
 ```
-Done, now the phone is verified, we have stored a user generated pin code and shared secret in a secure place. The last thing we want to implement is the view to generate a code and send to the web service.
+Now the phone is verified. We have stored a user-generated PIN code and shared secret in a secure place. Next we want to implement the view to generate a code and send to the web service.
 
-## Implementing the 2FA view
+##Implementing the 2FA view
 
-- Add a new story board and call it **TOTP.storyboard**
-- Add textfield and Next buttons like the screen shot
+1. Add a new storyboard and call it **TOTP.storyboard**
+2. Add text field and Next buttons like in the screenshot
 ![](Images/part4/totpview.png)
-- Create a UIVIewController and call it **TOTPController**
-
-- Set the file owner of the new created view to TOTPController and add outlets and actions to the buttons and textfield. 
-- Embed the controller in a navigation controller and set the storyboardid of the navigation controller to totp (it will be used to launch the process in ValidationHelper later)
+3. Create a UIVIewController and call it **TOTPController**
+4. Set the file owner of the new created view to TOTPController and add outlets and actions to the buttons and text field. 
+5. Embed the controller in a navigation controller and set the storyboard of the navigation controller to TOTP (it will be used to launch the process in ValidationHelper later)
 
 ```objectivec
 - (IBAction)next:(id)sender;
@@ -747,7 +750,7 @@ Done, now the phone is verified, we have stored a user generated pin code and sh
 - (IBAction)cancel:(id)sender;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 ```
-Now we only have to implement the functionality to generate a TOTP code after verifying the pin from the user. Open **TOTPViewController.m** and make the enter pin textfield focus.
+Now we only have to implement the functionality to generate a TOTP code after verifying the PIN from the user. Open **TOTPViewController.m** and make the Enter PIN text field focus.
 
 ```objectivec
 @synthesize spinner, pinCode;
@@ -758,7 +761,7 @@ Now we only have to implement the functionality to generate a TOTP code after ve
     
 }
 ```
-Now the keyboard will popup, when the view loads (to make it fancy select numbered as keyboard type for the textfield). Next we want to dismiss the controller if the user presses cancel
+Now the keyboard will pop up when the view loads. Next, dismiss the controller if the user presses Cancel.
 
 ```objectivec
 - (IBAction)cancel:(id)sender {
@@ -784,8 +787,8 @@ Still in the **TOTPcontroller.m** add an import for **SimplekeyChain.h** and **H
 }
 ```
 
-## Generating a TOTP token on the client
-Yazid have have made a fanatics clean up of googles sample implementation of r TOTP generation https://github.com/yazid/iOS-TOTP and clone it and add the files in the classes folder to your project. Don't for get to star his project ;) Try an build and remove all a [release] statements since we are using ARC
+##Generating a TOTP token on the client
+Yazid has cleaned up Google’s [sample implementation of TOTP generation] (https://github.com/yazid/iOS-TOTP). Clone it and add the files in the classes folder to your project. (Don't forget to star his project!) Try to build and remove all a [release] statements since we are using ARC.
 
 ```
 MF_Base32Additions.h
@@ -796,9 +799,9 @@ TOTPGenerator.h
 TOTPGenerator.m
 ```
 
-Ok add an import to **TOTPGEnerator.h** and **MF_Base32Additions.h** to your **TOPTViewController**
+Add an import to **TOTPGEnerator.h** and **MF_Base32Additions.h** to your **TOPTViewController**.
 
-Create an action called generatePin 
+Create an action called generatePin: 
 
 ```objectivec
 -(NSString*)generatePin:(NSString*)secret
@@ -816,7 +819,7 @@ Create an action called generatePin
     return token;
 }
 ```
-in the next: action generate the token and send it to the server for verification. If the token is ok the website will login if not, nothing will happen. 
+In the next action, generate the token and send it to the server for verification. If the token is OK, the website will log in. If not, nothing will happen. 
 
 ```objectivec
 - (IBAction)next:(id)sender {
@@ -845,14 +848,16 @@ in the next: action generate the token and send it to the server for verificatio
 }
 
 ```
-That hhtpClient verifyToken doesn't exsit lets implement it, as you might remember it doesn't return anything but status OK if everything is ok. Nothing can really go wrong the client. 
+That httpClient verifyToken doesn't exist. Let’s implement it, as you might remember it doesn't return anything but status “OK” if everything is OK. Nothing can really go wrong in the client. 
 
 **httpClient.h**
+
 ```objectivec
 -(void)verifyToken:(NSString *)token withPhonenumber:(NSString*)phoneNumber completion:(void (^)(NSError * error))completion;
 
 ```
-**HttClient.m**
+**httpClient.m**
+
 ```objectivec
 -(void)verifyToken:(NSString *)token withPhonenumber:(NSString*)phoneNumber completion:(void (^)(NSError * error))completion
 {
@@ -872,7 +877,7 @@ That hhtpClient verifyToken doesn't exsit lets implement it, as you might rememb
     
 }
 ```
-Ok almost done here. last thing we need is a method in our ValidationHelper to initiate the verification process. 
+Hang in there; we are almost done! The last thing we need is a method in our ValidationHelper to initiate the verification process. 
 **ValidationHelper.h**
 
 ```objectivec
@@ -901,12 +906,10 @@ Ok almost done here. last thing we need is a method in our ValidationHelper to i
 ```
 
 
-## More ideas to improve the experience
-- Send an push to the phone when there is a auth request from the website.
-- Implement functionality to prompt both website and mobile that a wrong token was generated.
-- Add BLE support so its will login automatically when the phone is close to the computer. 
-
-
+##More ideas to improve the experience
+Send an push to the phone when there is an authentication request from the website
+Implement functionality to prompt both website and mobile that a wrong token was generated
+Add Bluetooth low energy support so it will log in automatically when the phone is close to the computer
 
 
 
