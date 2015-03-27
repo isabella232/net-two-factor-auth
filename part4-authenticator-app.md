@@ -36,7 +36,7 @@ public bool IsSinchAuthEnabled { get; set; }
 public string SinchAuthSecretKey { get; set; }
 
 ```
-In package manager console, run `update-datbase`.
+In package manager console, run `update-database`.
 
 
 ##Implementing your own TokenProvider
