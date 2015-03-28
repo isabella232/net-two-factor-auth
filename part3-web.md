@@ -1,20 +1,20 @@
-# Part 3 - Number Verification, ASP.NET Identity and Two Factor Authentication 
-In this part of the tutorial series, we are going to create an SMS provider for Microsoft Identity that comes shipped with in the .net framework in about 15 minutes.
+#Number Verification, ASP.NET Identity and Two-Factor Authentication - Part 3
+In Part 3 of this tutorial series, we will create an SMS provider for Microsoft Identity that comes shipped with in the .NET framework. It will take about 15 minutes.
 
-## Prerequisites 
-1. Good understanding of C# and REST APIs
+##Prerequisites 
+1. Working knowledge of C# and REST APIs
 2. Visual Studio 2013 or later
-3. An account with Sinch [http://sinch.com/signup](http://sinch.com/signup)
+3. A [Sinch account](http://sinch.com/signup)
 
-## Setup
+##Setup
 1. Create a new a project and name it **LoginSample**
-2. Select MVC project with basic Authentication
+2. Select MVC project with basic authentication
 
 ![](Images/part3/greateproject.png)
 
-## Enable SMS for Two Factor Authentication with Sinch
-1. In the package manager console, enter `Install-Package Sinch.SMS`
-2. Open **IdentityConfig.cs** in the **App_Start** folder and find the **SMSService** class and add the Sinch implementation to it like this:
+##Enable SMS for two-factor authentication with Sinch
+1. In the package manager console, enter: `Install-Package Sinch.SMS`
+2. Open **IdentityConfig.cs** in the **App_Start** folder and find the **SMSService** class. Add the Sinch implementation to it like this:
 
 ```csharp
 public Task SendAsync(IdentityMessage message)
@@ -24,12 +24,12 @@ public Task SendAsync(IdentityMessage message)
 }
 ```
 
-Remember to replace the **key** and **secret** with your own info from the [dashboard](http://sinch.com/dashboard)
+Remember to replace the **key** and **secret** with your own info from the [dashboard](http://sinch.com/dashboard).
 
-## Update the profile page to show number
-In a production scenario, you would probably ask for a phone number during the registration process, but in this case we will just add it to the profile page. 
+##Update the profile page to show number
+In a production scenario, you would likely ask for a phone number during the registration process. In this case, we will just add it to the profile page. 
 
-1. Open **Views\Manage\Index.cshtml**, and find the **PhoneNumber** section and uncomment it:
+1. Open **Views\Manage\Index.cshtml** and find the **PhoneNumber** section. Uncomment it:
 
 ```html
   <dt>Phone Number:</dt>
@@ -49,7 +49,7 @@ In a production scenario, you would probably ask for a phone number during the r
     </dd>
 ``` 
 
-2. Also uncomment the Two Factor Authenticate part:
+2. Also uncomment the two-factor authentication part:
 
 ```csharp
  @if (Model.TwoFactor)
@@ -75,18 +75,19 @@ else
 ```
 
 #Testing the app
-Hit **F5** and run the app. If you haven't already registered an account, click on the user name in the top right corner. This will take you to the manage profile page.
+Hit **F5** and run the app. If you haven't already registered an account, click on the username in the top right corner. This will take you to the page where you can manage your profile.
 
 ![](Images/part3/profilepage.png)
 
-1. Click add phone number (remember to enter it in international format i.e **1**5612600684)
+1. Click Add Phone Number; remember to enter it in the international format (i.e **1**5612600684)
 2. Enter the code you received in an SMS
-3. Click enable Two Factor Auth, and log off and log in again you should now see it below:
+3. Click enable two-factor authentication
+4. Log off and log back in; you should now see it below:
 
 ![enter code](Images/part3/entercode.png)
 
-4. Click next and enter the code in the next window.
+5. Click Next and enter the code in the following window.
 
 ![verify code](Images/part3/verifycode.png)
 
-This tutorial showed you how easy it is to enable Two Factor Auth on an ASP.net Identity application using Sinch. 
+Now you see how easy it is to enable two-factor authentication on an ASP.NET Identity application using Sinch. 
