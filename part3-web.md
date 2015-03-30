@@ -48,6 +48,7 @@ In a production scenario, you would likely ask for a phone number during the reg
         ]
     </dd>
 ``` 
+<br>
 2. Also uncomment the two-factor authentication part:
 
 ```csharp
