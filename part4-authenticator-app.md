@@ -1,6 +1,6 @@
 #Number Verification: Build Your Own Authenticator App With Sinch and OTP-Sharp - Part 4
 
-In previous tutorials, you learned to verify numbers and use two-factor authentication (2FA) on both web and an iOS device. In this tutorial, we are going to build a 2FA system that only sends one SMS per app install to enable 2FA for web—think Google Authenticator, BankID or even Facebook login on iOS. 
+In previous tutorials, you learned to verify numbers and use [two-factor authentication (2FA)](https://www.sinch.com/opinion/what-is-two-factor-authentication/) on both web and an iOS device. In this tutorial, we are going to build a 2FA system that only sends one SMS per app install to enable 2FA for web—think Google Authenticator, BankID or even Facebook login on iOS. 
 
 Building such a system helps you:
 
