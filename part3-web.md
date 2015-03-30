@@ -48,7 +48,6 @@ In a production scenario, you would likely ask for a phone number during the reg
         ]
     </dd>
 ``` 
-
 2. Also uncomment the two-factor authentication part:
 
 ```csharp
@@ -82,10 +81,8 @@ Hit **F5** and run the app. If you haven't already registered an account, click 
 1. Click Add Phone Number; remember to enter it in the international format (i.e **1**5612600684)
 2. Enter the code you received in an SMS
 3. Click enable two-factor authentication
-4. Log off and log back in; you should now see it below:
-
+4. Log off and log back in; you should now see it below:<br>
 ![enter code](Images/part3/entercode.png)
-
 5. Click Next and enter the code in the following window.
 
 ![verify code](Images/part3/verifycode.png)
