@@ -10,11 +10,11 @@ Building such a system helps you:
 See the flow below. This tutorial is implementing the RFC 6238 that Google Authenticator uses.  
 
 ##Appflow
-![](http://www.websequencediagrams.com/files/render?link=TmBz0wWa5caJjKoH_sp3)
+![](Images/part4/render.png)
 
 The goal is to have a template project using Sinch for SMS and SMS free 2FA that you can use in production for you website. 
 
-This tutorial will take 60 to 120 minutes to finish; the finished sample can be [downloaded here](http://github.com/sinch/sldkafjlaksdjfksldfj).
+This tutorial will take 60 to 120 minutes to finish; the finished sample can be [downloaded here](https://github.com/sinch/net-two-factor-auth/archive/master.zip).
 
 ##Prerequisites
 - A solid understanding of .NET, MVC and WebAPI
