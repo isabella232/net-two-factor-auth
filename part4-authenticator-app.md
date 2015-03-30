@@ -9,14 +9,14 @@ Building such a system helps you:
 
 See the flow below. This tutorial is implementing the RFC 6238 that Google Authenticator uses.  
 
-##Appflow
+###Appflow
 ![](Images/part4/render.png)
 
 The goal is to have a template project using Sinch for SMS and SMS free 2FA that you can use in production for you website. 
 
 This tutorial will take 60 to 120 minutes to finish; the finished sample can be [downloaded here](https://github.com/sinch/net-two-factor-auth/archive/master.zip).
 
-##Prerequisites
+###Prerequisites
 - A solid understanding of .NET, MVC and WebAPI
 
 ##Setup
@@ -27,7 +27,7 @@ This tutorial will take 60 to 120 minutes to finish; the finished sample can be 
 4. In PM console, install Sinch.SMS `pm>Install-Package Sinch.SMS`
 5. In PM console, install OTPSharp `pm>Install-Package OtpSharp` 
 
-##Modifying ApplicationUser class
+###Modifying ApplicationUser class
 In this tutorial, we are going to add a custom 2FA provider that is based on IUserTokenProvider. But first, we want to add some properties to the ApplicationUser object.
 First, in PM console, run `Enable-Migrations` and add below to ApplicationUser: 
 
@@ -39,7 +39,7 @@ public string SinchAuthSecretKey { get; set; }
 In package manager console, run `update-database`.
 
 
-##Implementing your own TokenProvider
+###Implementing your own TokenProvider
 Create a new class and name it SinchAuthTokenProvider: 
 
 ```csharp
@@ -93,7 +93,7 @@ Open **App_Start\IdentityConfig.cs** comment out SMS and email token providers. 
 manager.RegisterTwoFactorProvider("SinchAuthToken", new SinchAuthTokenProvider());
 ```
 
-##Enabling SMS code to be sent out when phone is added to the account
+###Enabling SMS code to be sent out when phone is added to the account
 Find SMSService in **IdentityConfig.cs**:
 ```csharp
 public class SmsService : IIdentityMessageService {
@@ -105,7 +105,7 @@ public class SmsService : IIdentityMessageService {
 ```
 Change the key and secret to the key you have in your [dashboard](http://sinch.com/dashboard).
 
-##Adding UI to let the user select to use SinchAuth 
+###Adding UI to let the user select to use SinchAuth 
 Open the user management index view (**Views\Manage\Index.cshtml**). 
 Remove the comments around 2FA and make it look like the below code. Also, uncomment the phone number field because we will use the phone number to identify a user.
 
@@ -186,7 +186,7 @@ Press Next and get this:
 
 That’s not ideal, and in this sample, we are only going to support one, so as soon as someone tries to log in, we will skip directly to verify code. But first, let’s prepare an API to handle the mobile client. 
 
-##Adding API endpoints to verify phone and tokens
+###Adding API endpoints to verify phone and tokens
 Again, we are going to verify the number twice in the app to ensure the user is in possession of the SIM card both times, since it might not happen on the same day. (If you are to use WebAPI for the rest of your project, you should really add WebAPI security to the whole WebAPI. [Read more here](http://www.asp.net/web-api/overview/security/individual-accounts-in-web-api).) 
 
 Create a WebAPI controller and name it VerifyController. Let’s add some plumbing code for Asp.Net identity and a response object for when you verify a code. 
@@ -613,7 +613,7 @@ Now, change the validateCode protocol and method to handle NSDATA as parameter a
 ```
 The above code forwards the data as well to the completion block. If you recall, this is called in the **EntercodeController**. In this controller, we want to change the flow a bit to display another controller where the user enters a personal PIN code and saves it on the device tighter with the shared secret. 
 
-##Choose a PIN UI
+###Choose a PIN UI
 Let’s add and change the current UI to let us set a PIN. When we are done, it should look like below:
 ![](Images/part4/storyboardpart4.png)
 
@@ -736,7 +736,7 @@ Uncomment the -prepareForSegue method and implement the following to prepare cho
 ```
 Now the phone is verified. We have stored a user-generated PIN code and shared secret in a secure place. Next we want to implement the view to generate a code and send to the web service.
 
-##Implementing the 2FA view
+###Implementing the 2FA view
 
 1. Add a new storyboard and call it **TOTP.storyboard**
 2. Add text field and Next buttons like in the screenshot<br>
