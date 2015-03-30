@@ -16,11 +16,8 @@ Using this framework, you should be able to drop it in an app, call a method and
 ## Setup
 1. Create a workspace name it **NumberValidator**
 2. Create a new Cocoa Touch Framework 
-
 ![create project](Images/part2/createproject.png)
-
 3. Add it to the workspace 
-
 ![add to workspace](Images/part2/addtoworkspace.png)
 
 Repeat steps 1 through 3 but add a Single Page application and call it **NumberValidatorSampleApp**.
