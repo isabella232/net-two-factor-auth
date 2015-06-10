@@ -10,7 +10,7 @@ In Part 3 of this tutorial series, we will create an SMS provider for Microsoft 
 1. Create a new a project and name it **LoginSample**
 2. Select MVC project with basic authentication
 
-![](Images/part3/greateproject.png)
+![create project](Images/part3/greateproject.png)
 
 ##Enable SMS for two-factor authentication with Sinch
 1. In the package manager console, enter: `Install-Package Sinch.SMS`
@@ -77,7 +77,7 @@ else
 #Testing the app
 Hit **F5** and run the app. If you haven't already registered an account, click on the username in the top right corner. This will take you to the page where you can manage your profile.
 
-![](Images/part3/profilepage.png)
+![profile page](Images/part3/profilepage.png)
 
 1. Click Add Phone Number; remember to enter it in the international format (i.e **1**5612600684)
 2. Enter the code you received in an SMS
