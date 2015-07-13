@@ -2,7 +2,7 @@
 
 More and more websites and apps ask for your phone number and, in many cases, are using it for two-factor authentication. ([Read more about 2FA here] (https://www.sinch.com/opinion/what-is-two-factor-authentication/).)
 
-In this tutorial, you will learn how to build your own two-factor system in about 30 minutes. In [Part 2](https://www.sinch.com/tutorials/build-two-factor-authentication-system-pt-2/), we will implement it in one of our clients. 
+In this tutorial, you will learn how to build your own two-factor system in about 30 minutes, using a classic [SMS verification system](https://www.sinch.com/products/verification/sms-verification/). In [Part 2](https://www.sinch.com/tutorials/build-two-factor-authentication-system-pt-2/), we will implement it in one of our clients. 
 
 The full sample code can be downloaded [here](https://github.com/sinch/net-two-factor-auth).
 
