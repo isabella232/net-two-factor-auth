@@ -129,10 +129,10 @@ I like to use Postman for Chrome to test out my REST APIs. You can get it [here]
 Hit F5 to start the app locally and make a note of the port. In my case, it was 2945. Then head over to [http://localhost:yourport/Help](http://localhost:yourport/Help) and you should see how to call our new API. 
 
 In Postman, generate an SMS:
-![](Images/postman_generate.png)
+![postman](Images/postman_generate.png)
 
 And to verify code:
-![](Images/postman_verify.png)
+![testing a c# authentication system](Images/postman_verify.png)
 
 ##Next step
 In [the next step of this tutorial](https://www.sinch.com/tutorials/build-two-factor-authentication-system-pt-2/), we will explain how to use this in a native phone app or on a website. 
