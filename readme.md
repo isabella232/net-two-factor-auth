@@ -1,3 +1,5 @@
+Writer’s note: *For the latest updates on mobile app security, make sure to check out our [Verification SDK] (hypertext https://www.sinch.com/products/verification/sms-verification/).*
+
 #Build Your Own Number Verification and Two-Factor Authentication System C# .NET - Part 1
 
 More and more websites and apps ask for your phone number and, in many cases, are using it for two-factor authentication. ([Read more about 2FA here] (https://www.sinch.com/opinion/what-is-two-factor-authentication/).)
