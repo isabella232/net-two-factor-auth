@@ -1,3 +1,6 @@
+Writer’s note: *For the latest updates on mobile app security, make sure to check out our [Verification SDK] (https://www.sinch.com/products/verification/sms-verification/).*
+
+
 #Building an iOS Client for Number Verification - Part 2
 
 In [Part 1 of this tutorial](https://www.sinch.com/tutorials/build-two-authentication-system/), we created some server-side code to generate codes that are sent by [our SMS API](https://www.sinch.com/products/sms-api/) to a phone number. In Part 2, we will implement the number verification system for a mobile device. Then, in [Part 3](https://www.sinch.com/tutorials/build-two-factor-authentication-system-pt-3), we will add the two-factor authentication system to the iOS client and a website. This tutorial will take about 30 minutes to complete. 
