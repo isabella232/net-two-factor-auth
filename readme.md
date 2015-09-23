@@ -1,4 +1,5 @@
-Writer’s note: *For the latest updates on mobile app security, make sure to check out our [Verification SDK] (hypertext https://www.sinch.com/products/verification/sms-verification/).*
+Writer’s note: *For the latest updates on mobile app security, make sure to check out our [Verification SDK] (https://www.sinch.com/products/verification/sms-verification/).*
+
 
 #Build Your Own Number Verification and Two-Factor Authentication System C# .NET - Part 1
 
