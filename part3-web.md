@@ -1,4 +1,4 @@
-Writer’s note: *For the latest updates on mobile app security, make sure to check out our [Verification SDK] (https://www.sinch.com/products/verification/sms-verification/).*
+**Update:** To verify numbers even easier, check out our [Verification SDK] (https://www.sinch.com/products/verification/sms-verification/)
 
 #Number Verification, ASP.NET Identity and Two-Factor Authentication - Part 3
 In Part 3 of this tutorial series, we will create an SMS provider for Microsoft Identity that comes shipped with in the .NET framework. It will take about 15 minutes.
