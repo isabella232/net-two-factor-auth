@@ -1,7 +1,6 @@
 **Update:** To verify numbers even easier, check out our [Verification SDK] (https://www.sinch.com/products/verification/sms-verification/)
 
-
-#Build Your Own Number Verification and Two-Factor Authentication System C# .NET - Part 1
+#Building a C# Authentication System with .NET - Part 1
 
 More and more websites and apps ask for your phone number and, in many cases, are using it for two-factor authentication. ([Read more about 2FA here] (https://www.sinch.com/opinion/what-is-two-factor-authentication/).)
 
