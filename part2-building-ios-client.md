@@ -3,10 +3,10 @@
 
 #Building an iOS Client for Number Verification - Part 2
 
-In [Part 1 of this tutorial](https://www.sinch.com/tutorials/build-two-authentication-system/), we created some server-side code to generate codes that are sent by [our SMS API](https://www.sinch.com/products/sms-api/) to a phone number. In Part 2, we will implement the number verification system for a mobile device. Then, in [Part 3](https://www.sinch.com/tutorials/build-two-factor-authentication-system-pt-3), we will add the two-factor authentication system to the iOS client and a website. This tutorial will take about 30 minutes to complete. 
+In [Part 1 of this tutorial](https://www.sinch.com/tutorials/building-a-c-authentication-system-with-net/), we created some server-side code to generate codes that are sent by [our SMS API](https://www.sinch.com/products/sms-api/) to a phone number. In Part 2, we will implement the number verification system for a mobile device. Then, in [Part 3](https://www.sinch.com/tutorials/build-two-factor-authentication-system-pt-3), we will add the two-factor authentication system to the iOS client and a website. This tutorial will take about 30 minutes to complete. 
 
 ##Prerequisites
-1. Complete [Part 1](https://www.sinch.com/tutorials/build-two-authentication-system/) of this tutorial, or [download the repo](https://github.com/sinch/net-two-factor-auth)
+1. Complete [Part 1](https://www.sinch.com/tutorials/building-a-c-authentication-system-with-net/) of this tutorial, or [download the repo](https://github.com/sinch/net-two-factor-auth)
 2. Versed in iOS development
 3. Xcode 6
 
