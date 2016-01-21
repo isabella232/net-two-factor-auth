@@ -6,7 +6,7 @@ In Part 3 of this tutorial series, we will create an SMS provider for Microsoft 
 ##Prerequisites 
 1. Working knowledge of C# and REST APIs
 2. Visual Studio 2013 or later
-3. A [Sinch account](http://sinch.com/signup)
+3. A [Sinch account](https://sinch.com/signup)
 
 ##Setup
 1. Create a new a project and name it **LoginSample**
@@ -26,7 +26,7 @@ public Task SendAsync(IdentityMessage message)
 }
 ```
 
-Remember to replace the **key** and **secret** with your own info from the [dashboard](http://sinch.com/dashboard).
+Remember to replace the **key** and **secret** with your own info from the [dashboard](https://sinch.com/dashboard).
 
 ##Update the profile page to show number
 In a production scenario, you would likely ask for a phone number during the registration process. In this case, we will just add it to the profile page. 
