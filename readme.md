@@ -3,7 +3,7 @@
 #Building a C# Authentication System with .NET - Part 1
 
 More and more websites and apps ask for your phone number and, in many cases, are using it for two-factor authentication. ([Read more about 2FA here] (https://www.sinch.com/opinion/what-is-two-factor-authentication/).)
-
+ht
 In this tutorial, you will learn how to build your own C# two factor authentication system in about 30 minutes, using a classic [SMS verification system]( https://www.sinch.com/tutorials/swift-sms-verification/?utm_source=sinch&utm_medium=xlink&utm_campaign=verifyiossmssinch), using .NET for the backend. In [Part 2](https://www.sinch.com/tutorials/build-two-factor-authentication-system-pt-2/?utm_source=sinch&utm_medium=xlink&utm_campaign=verifyauthcsharp2sinch), we will implement it in one of our clients. 
 
 For more [Verification Tutorials](https://www.sinch.com/tutorials/?tags%5B%5D=verification&utm_source=sinch&utm_medium=xlink&utm_campaign=verifyall)
@@ -13,7 +13,7 @@ The full sample code can be downloaded [here](https://github.com/sinch/net-two-f
 ##Prerequisites 
 1. A solid understanding of C# and REST APIs
 2. Visual Studio 2013 or later
-3. A [Sinch account](http://sinch.com/signup)
+3. A [Sinch account](https://sinch.com/signup)
 4. A free [Azure](http://azure.com) account, if you want to host it there (optional)
 
 ##Create a project
